@@ -1,6 +1,6 @@
-<title>Recycle Season Academy</title>
+<title>Lux Life Academy</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="A free forex course from first pip to full trading plan, written by Recycle Season.">
+<meta name="description" content="A free forex course from first pip to full trading plan, from Lux Life Academy.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -42,6 +42,9 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;g
 nav.links{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
 nav.links a,.btn-ghost{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:10px 12px;border:1px solid transparent;background:none;cursor:pointer}
 nav.links a:hover,.btn-ghost:hover{color:var(--gold-hi)}
+nav.links a.nav-cta{color:var(--on-gold);background:var(--gold);border-color:var(--gold)}
+nav.links a.nav-cta:hover{background:var(--gold-hi);color:var(--on-gold)}
+.disclose{font-size:12px;color:var(--muted);margin:14px 0 0;max-width:60ch}
 nav.links a[aria-current="page"]{color:var(--gold-hi);border-color:var(--line)}
 
 /* shared type */
@@ -200,11 +203,12 @@ input,select{font:500 16px/1.2 var(--mono);color:var(--fg);background:var(--bg);
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#home"><span class="mono-mark">RS</span><span><b>Recycle Season</b><small>Forex Academy · Free</small></span></a>
+    <a class="brand" href="#home"><span class="mono-mark">LL</span><span><b>Lux Life Academy</b><small>Forex · Free</small></span></a>
     <nav class="links">
       <a href="#home" data-nav="home">Curriculum</a>
       <a href="#tools" data-nav="tools">Tools</a>
       <a href="#code" data-nav="code" class="hide-sm">The Code</a>
+      <a class="broker-link nav-cta" href="#" target="_blank" rel="noopener sponsored">Open broker account</a>
       <button class="btn-ghost" id="theme-toggle" type="button" aria-label="Switch light or dark theme">Theme</button>
     </nav>
   </div>
@@ -215,8 +219,8 @@ input,select{font:500 16px/1.2 var(--mono);color:var(--fg);background:var(--bg);
 <footer>
   <div class="wrap">
     <div>
-      <p><strong class="gold">Recycle Season Academy</strong> is free and always will be. The curriculum follows the classic beginner-to-advanced path made popular by the BabyPips School of Pipsology. Every lesson here is written in our own words. To go deeper, study the original at <a href="https://www.babypips.com/learn/forex" target="_blank" rel="noopener">babypips.com</a>.</p>
-      <p>Not affiliated with or endorsed by BabyPips.</p>
+      <p><strong class="gold">Lux Life Academy</strong> teaches forex for free. The course costs nothing. We only ask that you open your trading account through our partner broker. The curriculum follows the classic beginner-to-advanced path made popular by the BabyPips School of Pipsology. Every lesson here is written in our own words. To go deeper, study the original at <a href="https://www.babypips.com/learn/forex" target="_blank" rel="noopener">babypips.com</a>.</p>
+      <p>Not affiliated with or endorsed by BabyPips. Lux Life Academy may earn a commission when you open an account through our broker link.</p>
     </div>
     <div>
       <p><strong>Risk disclosure.</strong> This is education, not financial advice. Leveraged forex and CFD trading carries a high risk of loss, and most retail accounts lose money. Brokers in many regions publish the share of their own clients who lose; it is often above 60%. Trade only money you can afford to lose, and practise on a demo account first.</p>
@@ -225,6 +229,9 @@ input,select{font:500 16px/1.2 var(--mono);color:var(--fg);background:var(--bg);
 </footer>
 
 <script>
+/* ---------- YOUR BROKER LINK: paste your partner/affiliate URL here ---------- */
+const BROKER_URL = "#";
+
 /* ---------- course content (original writing) ---------- */
 const SVG_CANDLE = `<figure><svg viewBox="0 0 520 230" role="img" aria-label="Anatomy of a bullish and a bearish candlestick">
 <g font-family="Manrope, sans-serif" font-size="12" fill="var(--muted)">
@@ -259,7 +266,7 @@ const SVG_FIB = `<figure><svg viewBox="0 0 560 250" role="img" aria-label="Fibon
 <line x1="40" y1="238" x2="540" y2="238" stroke="var(--line)"/><text x="470" y="233">100% · 1.0800</text>
 </g>
 <polyline fill="none" stroke="var(--gold-hi)" stroke-width="2.2" points="50,238 120,170 160,190 250,30 300,90 340,159 380,120 440,40"/>
-</svg><figcaption>Draw from the swing low to the swing high in an uptrend. Price pulled back to 61.8% (about 1.0876), held, and the trend resumed. That pullback is the recycle: weak hands sell, patient money buys.</figcaption></figure>`;
+</svg><figcaption>Draw from the swing low to the swing high in an uptrend. Price pulled back to 61.8% (about 1.0876), held, and the trend resumed. On that pullback, weak hands sell and patient money buys.</figcaption></figure>`;
 
 const COURSE = [
 /* ===================== MODULE 1 ===================== */
@@ -272,7 +279,7 @@ lessons:[
 <p>There is no central building for forex. It is an <strong>over-the-counter (OTC)</strong> market, a global network of banks, brokers and electronic platforms trading directly with each other. That is why it runs 24 hours a day, five days a week.</p>
 <h2>What you are really trading</h2>
 <p>When you trade forex you are betting on the <em>relative</em> strength of one economy against another. If you think the US economy will outperform Europe, you would expect the dollar to gain on the euro. Currency prices are a scoreboard for interest rates, growth, inflation, politics and sentiment.</p>
-<div class="callout"><span class="eyebrow">Recycle Season note</span><p>Money never leaves the system. It rotates. When one currency weakens, capital flows somewhere else. Your job is to learn where it is flowing and get positioned before the crowd notices.</p></div>`},
+<div class="callout"><span class="eyebrow">Lux note</span><p>Money never leaves the system. It rotates. When one currency weakens, capital flows somewhere else. Your job is to learn where it is flowing and get positioned before the crowd notices.</p></div>`},
 { t:"Currency Pairs Decoded", d:"Base, quote, majors, crosses and exotics.", h:`
 <p>Currencies are always quoted in pairs, because you are always buying one and selling another at the same time.</p>
 <div class="formula">EUR/USD = 1.0850
@@ -301,7 +308,7 @@ base / quote  →  1 euro costs 1.0850 US dollars</div>
 <li><strong>Spread</strong>: the gap between them (here 2 pips). It is the broker's fee, and every trade starts slightly negative by that amount.</li></ul>
 <h2>A full round trip</h2>
 <p>You buy EUR/USD at 1.0852. Later the quote is 1.0900 / 1.0902. You close by selling at the bid, 1.0900. You captured 48 pips. If you had sold first and price fell instead, you would profit from the drop in the same way.</p>
-<div class="callout"><span class="eyebrow">Recycle Season note</span><p>Our edge is to look for buys. Strong economies and strong trends do not stay pushed down for long, and pullbacks inside an uptrend are where the patient money gets in. Learn to short as well, though. A complete trader can see both sides of the chart.</p></div>`},
+<div class="callout"><span class="eyebrow">Lux note</span><p>Our edge is to look for buys. Strong economies and strong trends do not stay pushed down for long, and pullbacks inside an uptrend are where the patient money gets in. Learn to short as well, though. A complete trader can see both sides of the chart.</p></div>`},
 { t:"Who Moves the Market", d:"From central banks to you.", h:`
 <p>The forex market is a hierarchy. The closer a participant is to the top, the better their pricing and the bigger their influence.</p>
 <ol><li><strong>Central banks</strong> (the Fed, ECB, Bank of Japan, Bank of England). They set interest rates and can intervene directly. When they speak, everything moves.</li>
@@ -395,7 +402,7 @@ at 50:1 → $108,500 ÷ 50 = $2,170 margin</div>
 <p>Pending orders can be <strong>GTC</strong> (good till cancelled) or <strong>GFD</strong> (good for the day).</p>
 <h2>Slippage</h2>
 <p>In fast markets, around news especially, your order may fill at a worse price than requested. A stop loss is not a guaranteed exit price unless your broker offers a guaranteed stop, usually for an extra fee.</p>
-<div class="callout"><span class="eyebrow">Recycle Season note</span><p>The buy limit is our signature order. Decide your price in advance and let the market come to you. Chasing a breakout means paying retail. A limit at support means buying wholesale.</p></div>`},
+<div class="callout"><span class="eyebrow">Lux note</span><p>The buy limit is our signature order. Decide your price in advance and let the market come to you. Chasing a breakout means paying retail. A limit at support means buying wholesale.</p></div>`},
 { t:"Rollover and Swap", d:"Getting paid, or paying, to hold overnight.", h:`
 <p>Every currency carries an interest rate set by its central bank. When you hold a position past the daily rollover (5:00 pm ET), you earn or pay the <strong>interest rate differential</strong> between the two currencies. This is called <strong>swap</strong> or <strong>rollover</strong>.</p>
 <ul><li>Buy a currency with a <em>higher</em> rate against one with a <em>lower</em> rate, and you usually <strong>earn</strong> swap.</li>
@@ -454,7 +461,7 @@ ${SVG_SR}
 <ul><li>Start on a higher timeframe (daily or 4-hour).</li><li>Mark areas where price turned at least twice.</li><li>Draw zones across candle bodies and wicks rather than one exact line.</li><li>Round numbers such as 1.1000 or 150.00 often act as psychological levels.</li></ul>
 <h2>Role reversal</h2>
 <p>Once resistance breaks, it often turns into support, and once support breaks it often turns into resistance. The <strong>retest</strong> of a broken level is one of the cleanest entries in trading.</p>
-<div class="callout"><span class="eyebrow">Recycle Season note</span><p>Price coming back to support in an uptrend is the recycle. Sellers take profit, late shorts pile in, and the strong hands buy again. Mark those zones before price arrives, then wait.</p></div>`},
+<div class="callout"><span class="eyebrow">Lux note</span><p>Price coming back to support in an uptrend is an opportunity. Sellers take profit, late shorts pile in, and the strong hands buy again. Mark those zones before price arrives, then wait.</p></div>`},
 { t:"Trend Lines and Channels", d:"Mapping direction.", h:`
 <ul><li><strong>Uptrend line</strong>: connect two or more rising swing lows. Price above it means bulls are in control.</li>
 <li><strong>Downtrend line</strong>: connect two or more falling swing highs.</li>
@@ -550,7 +557,7 @@ lessons:[
 <ul><li><strong>Trend filter</strong>: price above the 200-day MA means look for buys. Below it means be cautious.</li>
 <li><strong>Dynamic support</strong>: in strong trends, price often pulls back to the 20 or 50 EMA, then continues.</li>
 <li><strong>Crossovers</strong>: a fast MA crossing above a slow MA suggests a trend may be starting. The 50/200 cross is called the "golden cross", and the bearish version is the "death cross".</li></ul>
-<div class="callout"><span class="eyebrow">Recycle Season note</span><p>In an uptrend, a pullback to the 50 EMA that holds with a bullish candle is a classic recycle buy. The trend pauses, it does not end.</p></div>`},
+<div class="callout"><span class="eyebrow">Lux note</span><p>In an uptrend, a pullback to the 50 EMA that holds with a bullish candle is a classic buy setup. The trend pauses, it does not end.</p></div>`},
 { t:"Bollinger Bands and ATR", d:"Measuring volatility.", h:`
 <p><strong>Bollinger Bands</strong> place bands two standard deviations above and below a 20-period SMA.</p>
 <ul><li>Bands <strong>widen</strong> when volatility rises and <strong>squeeze</strong> when it falls. A tight squeeze often comes before a big move.</li>
@@ -594,7 +601,7 @@ lessons:[
 <li><strong>Symmetrical triangle</strong>: converging highs and lows. It can break either way, so trade the break.</li>
 <li><strong>Rising and falling wedges</strong>: a rising wedge is typically bearish and a falling wedge typically bullish.</li>
 <li><strong>Rectangle</strong>: a horizontal range. Trade the edges or the break.</li></ul>
-<div class="callout"><span class="eyebrow">Recycle Season note</span><p>A bull flag is a recycle season pattern. The pole is the smart money move, the flag is the crowd doubting it, and the breakout is the crowd buying back in at higher prices.</p></div>`},
+<div class="callout"><span class="eyebrow">Lux note</span><p>A bull flag shows money rotating back in. The pole is the smart money move, the flag is the crowd doubting it, and the breakout is the crowd buying back in at higher prices.</p></div>`},
 { t:"Pivot Points", d:"The levels floor traders watched.", h:`
 <p>Pivot points use the previous period's high (H), low (L) and close (C) to project the next period's levels.</p>
 <div class="formula">PP = (H + L + C) ÷ 3
@@ -621,7 +628,7 @@ lessons:[
 <tr><td>Hidden bearish</td><td>Lower high</td><td>Higher high</td><td>Downtrend continuation</td></tr>
 </tbody></table></div>
 <p>Use RSI, MACD or Stochastic. Compare <strong>swing highs with swing highs</strong> and lows with lows, at the same points in time.</p>
-<div class="callout"><span class="eyebrow">Recycle Season note</span><p>Hidden bullish divergence is the recycle signal written in maths. The trend is intact, momentum reset, and the dip is a gift.</p></div>`},
+<div class="callout"><span class="eyebrow">Lux note</span><p>Hidden bullish divergence is the buy-the-dip signal written in maths. The trend is intact, momentum reset, and the dip is a gift.</p></div>`},
 { t:"Multiple Timeframe Analysis", d:"Zoom out, then zoom in.", h:`
 <p>Pick three timeframes, each roughly four to six times the one below it:</p>
 <div class="table-wrap"><table><thead><tr><th>Style</th><th>Trend (higher)</th><th>Setup (middle)</th><th>Entry (lower)</th></tr></thead><tbody>
@@ -679,7 +686,7 @@ lessons:[
 <h2>Correlations</h2>
 <ul><li>EUR/USD and GBP/USD often move together, a positive correlation.</li><li>EUR/USD and USD/CHF often move opposite each other, a negative correlation.</li><li>AUD tracks metals, CAD tracks oil, and the US Dollar Index (DXY) shows the dollar's overall strength.</li></ul>
 <p>Buying EUR/USD and GBP/USD together is close to doubling one bet. Check correlations so you do not stack hidden risk.</p>
-<div class="callout"><span class="eyebrow">Recycle Season note</span><p>Fear sends money into safe havens, and greed brings it back out. The rotation never stops. Learn to read which phase the market is in.</p></div>`},
+<div class="callout"><span class="eyebrow">Lux note</span><p>Fear sends money into safe havens, and greed brings it back out. The rotation never stops. Learn to read which phase the market is in.</p></div>`},
 { t:"The Carry Trade", d:"Getting paid to wait.", h:`
 <p>Buy a high-interest currency against a low-interest one, earn the daily swap, and ideally gain from price appreciation too. For years the classic carry was long AUD/JPY or NZD/JPY.</p>
 <p>Carry trades work best in calm, risk-on markets. When fear spikes, everyone exits at once and carry pairs can fall violently, wiping out months of interest in days. Always use a stop.</p>`},
@@ -704,7 +711,7 @@ lessons:[
 <tr><td class="num">10%</td><td class="num">11.1%</td></tr><tr><td class="num">20%</td><td class="num">25.0%</td></tr><tr><td class="num">30%</td><td class="num">42.9%</td></tr><tr><td class="num">40%</td><td class="num">66.7%</td></tr><tr><td class="num">50%</td><td class="num">100.0%</td></tr><tr><td class="num">75%</td><td class="num">300.0%</td></tr>
 </tbody></table></div>
 <p>Even a great strategy has losing streaks of eight, ten or more trades. If you risk 10% per trade, ten losses ends you. If you risk 1%, ten losses is a bad week you recover from.</p>
-<div class="callout"><span class="eyebrow">Recycle Season note</span><p>Taking risks others will not does not mean betting the account. The richest players are the ones who are still at the table. Survive first, compound second.</p></div>`},
+<div class="callout"><span class="eyebrow">Lux note</span><p>Taking risks others will not does not mean betting the account. The richest players are the ones who are still at the table. Survive first, compound second.</p></div>`},
 { t:"The 1–2% Rule and Position Sizing", d:"The most important formula in this course.", h:`
 <p>Risk a fixed, small percentage of your account on every trade, usually <strong>1%</strong> and never more than 2%. Then let your stop distance decide your lot size.</p>
 <div class="formula">lots = (account × risk %) ÷ (stop in pips × pip value per lot)
@@ -748,7 +755,7 @@ lessons:[
 <li><strong>FOMO</strong>: chasing a move that already happened.</li>
 <li><strong>Overconfidence</strong>: a winning streak makes you abandon the rules.</li></ul>
 <p>Think in probabilities. Any single trade can lose even when it is a perfect setup. Your edge only shows over the next hundred trades.</p>
-<div class="callout"><span class="eyebrow">Recycle Season note</span><p>You are learning skills beyond trading: patience, self-control, record-keeping and emotional discipline. These make you dangerous in every business, not just on the chart.</p></div>`},
+<div class="callout"><span class="eyebrow">Lux note</span><p>You are learning skills beyond trading: patience, self-control, record-keeping and emotional discipline. These make you dangerous in every business, not just on the chart.</p></div>`},
 { t:"The Trading Journal", d:"Your private database of edge.", h:`
 <p>Record every trade:</p>
 <ul><li>Date, pair, direction, entry, stop, target, lot size</li><li>The setup and your reasons for taking it, with a screenshot</li><li>Result in pips, dollars and R-multiple</li><li>How you felt before, during and after the trade</li><li>Whether you followed your plan (yes or no)</li></ul>
@@ -763,7 +770,7 @@ lessons:[
 <li><strong>Exit rules</strong>: stop placement, targets, trailing and partials.</li>
 <li><strong>Risk rules</strong>: % per trade, daily and weekly limits, maximum open positions.</li>
 <li><strong>Routine</strong>: pre-session checklist, news check, post-session journal.</li></ol>
-<div class="callout"><span class="eyebrow">Example setup: The Recycle</span><p>Daily chart above the 200 SMA (uptrend). Price pulls back to a support zone that lines up with the 50% to 61.8% Fib retracement. A bullish engulfing or hammer forms on H4. Enter long, stop below the swing low, first target the prior high, second target the 161.8% extension. Risk 1%.</p></div>`},
+<div class="callout"><span class="eyebrow">Example setup: The Lux Pullback</span><p>Daily chart above the 200 SMA (uptrend). Price pulls back to a support zone that lines up with the 50% to 61.8% Fib retracement. A bullish engulfing or hammer forms on H4. Enter long, stop below the swing low, first target the prior high, second target the 161.8% extension. Risk 1%.</p></div>`},
 { t:"From Demo to Live to Funded", d:"The path forward.", h:`
 <ol><li><strong>Learn</strong>: finish this course and review the modules you scored lowest on.</li>
 <li><strong>Demo</strong>: trade your written plan for at least 2 to 3 months, or 50 to 100 trades, and journal everything.</li>
@@ -772,7 +779,7 @@ lessons:[
 <li><strong>Scale slowly</strong>: increase size only after consistent months, not after one hot week.</li>
 <li><strong>Consider prop firms</strong>: funded trader programmes let you trade firm capital after passing an evaluation. Read the rules closely. Most traders fail on the drawdown limits, which is one more reason risk management comes first.</li></ol>
 <div class="callout warn"><span class="eyebrow">Avoid</span><p>Signal groups selling "guaranteed pips", paid "account flipping", and anyone asking for your login. Real wealth in trading is built on skill and compounding, never shortcuts.</p></div>
-<p>If not you, then who? The work is the shortcut. Welcome to recycle season.</p>`}
+<p>If not you, then who? The work is the shortcut. Welcome to the Lux Life.</p>`}
 ],
 quiz:[
 {q:"Revenge trading means:", o:["Trading only the London session","Jumping back in to win back a loss","Following your plan strictly","Taking partial profits"], a:1, w:"Emotional, unplanned trades after a loss. It is the account killer."},
@@ -783,7 +790,7 @@ quiz:[
 ];
 
 /* ---------- state ---------- */
-const KEY="rs-academy-v1";
+const KEY="ll-academy-v1";
 let state={done:{},quiz:{}};
 try{const s=JSON.parse(localStorage.getItem(KEY)||"null"); if(s&&s.done&&s.quiz) state=s;}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
@@ -806,9 +813,10 @@ function viewHome(scrollTo){
   <section class="hero"><div class="wrap">
     <div>
       <span class="eyebrow">Free forex course · 12 modules · ${totalLessons} lessons</span>
-      <h1>Wealth is built in<br><em>recycle season.</em></h1>
+      <h1>Learn forex.<br><em>Live the Lux Life.</em></h1>
       <p class="lead">A complete forex education from your first pip to a written trading plan. Learn how the market works, how to read it, and how to manage risk so you stay in the game long enough to win.</p>
-      <div class="actions"><a class="btn" href="${next}">${doneCount?"Continue where you left off":"Begin Module 1"} →</a><a class="btn line" href="#tools">Position size tool</a></div>
+      <div class="actions"><a class="btn" href="${next}">${doneCount?"Continue where you left off":"Begin Module 1"} →</a><a class="btn line broker-link" href="#" target="_blank" rel="noopener sponsored">Open your broker account</a></div>
+      <p class="disclose">Free course. Open your account through our partner broker to support it. Lux Life Academy may earn a commission when you do.</p>
     </div>
     <div class="ticker" aria-label="Sample quote board">
       <div class="row"><span>Pair</span><span>Bid</span><span>Pips</span></div>
@@ -832,10 +840,10 @@ function viewHome(scrollTo){
       <div class="meta"><span>${m.lessons.length} lessons + quiz</span><span class="chip ${c}">${s}</span></div></a>`}).join("")}</div>
   </div></section>
   <section class="code" id="code"><div class="wrap">
-    <blockquote>“If not me, <span>then who?</span>”<br>For the ones who crossed borders so we could cross thresholds.</blockquote>
+    <blockquote>“If not me, <span>then who?</span>”</blockquote>
     <ol>
       <li><b>I.</b><div><strong>Always be looking to buy.</strong><span>Strong markets do not stay down for long. Pullbacks in a trend are where patient capital gets in.</span></div></li>
-      <li><b>II.</b><div><strong>Recycle season, not due season.</strong><span>Money rotates and never disappears. Learn the cycle and be positioned when it turns.</span></div></li>
+      <li><b>II.</b><div><strong>Money never disappears, it rotates.</strong><span>Fear pushes it out and greed brings it back. Learn the cycle and be positioned when it turns.</span></div></li>
       <li><b>III.</b><div><strong>Take the risks others will not, with a stop.</strong><span>Boldness in the idea, discipline in the size. Survival is what makes compounding possible.</span></div></li>
       <li><b>IV.</b><div><strong>Think outside the box.</strong><span>Patience, record-keeping and emotional control are trading skills too.</span></div></li>
       <li><b>V.</b><div><strong>Learn every step of the way.</strong><span>Every trade is tuition. The journal is the receipt.</span></div></li>
@@ -874,7 +882,7 @@ function viewQuiz(mid){
   app.innerHTML=`<div class="wrap room">${rail(m,"quiz")}
   <article class="lesson"><span class="eyebrow">Module ${mid} quiz</span><h1>Prove it.</h1><p class="dek">${m.quiz.length} questions. Score 80% or more with every lesson complete to master this module.</p>
   <div id="qs">${m.quiz.map((q,qi)=>`<div class="q" data-qi="${qi}"><h3>${qi+1}. ${esc(q.q)}</h3><div class="opts">${q.o.map((o,oi)=>`<button type="button" data-oi="${oi}">${esc(o)}</button>`).join("")}</div><div class="why" hidden></div></div>`).join("")}</div>
-  <div id="result" hidden class="callout"><span class="eyebrow">Your score</span><div class="score" id="score"></div><p id="verdict"></p></div>
+  <div id="result" hidden class="callout"><span class="eyebrow">Your score</span><div class="score" id="score"></div><p id="verdict"></p><p>Ready to practise? <a class="broker-link" href="#" target="_blank" rel="noopener sponsored">Open a free demo with our partner broker →</a></p></div>
   <div class="pager"><a class="btn line" href="#m${mid}-l${m.lessons.length}">← Last lesson</a><a class="btn" href="${next}">${mid<COURSE.length?"Next module":"Back to curriculum"} →</a></div>
   </article></div>`;
   app.querySelectorAll(".q").forEach(box=>{
@@ -950,13 +958,14 @@ function route(){
   else if(h==="code"){viewHome("code");}
   else {viewHome(); document.querySelector('[data-nav="home"]').setAttribute("aria-current","page");}
 }
-window.addEventListener("hashchange",route); route();
+function wireBroker(){document.querySelectorAll(".broker-link").forEach(a=>a.href=BROKER_URL)}
+window.addEventListener("hashchange",()=>{route();wireBroker()}); route(); wireBroker();
 
 /* ---------- theme toggle ---------- */
-(function(){const root=document.documentElement; let saved=null; try{saved=localStorage.getItem("rs-theme")}catch(e){}
+(function(){const root=document.documentElement; let saved=null; try{saved=localStorage.getItem("ll-theme")}catch(e){}
   if(saved) root.dataset.theme=saved;
   document.getElementById("theme-toggle").onclick=()=>{
     const cur=root.dataset.theme||(matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");
-    const nx=cur==="dark"?"light":"dark"; root.dataset.theme=nx; try{localStorage.setItem("rs-theme",nx)}catch(e){}};
+    const nx=cur==="dark"?"light":"dark"; root.dataset.theme=nx; try{localStorage.setItem("ll-theme",nx)}catch(e){}};
 })();
 </script>

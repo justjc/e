@@ -1,6 +1,6 @@
-# Recycle Season Academy
+# Lux Life Academy
 
-A free, luxury-styled forex course: 12 modules, 47 lessons, quizzes, progress tracking and a position size calculator.
+Lux Life Academy teaches forex for free: 12 modules, 47 lessons, quizzes, progress tracking and a position size calculator.
 
 - `index.html` is the full site. Open it in a browser or host it free on GitHub Pages.
 - `src/academy.html` is the page source (`index.html` wraps it in a document shell).
