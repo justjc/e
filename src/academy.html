@@ -1,14 +1,14 @@
 <title>Lux Life Academy</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="A free forex course from first pip to full trading plan, from Lux Life Academy.">
+<meta name="description" content="Learn to trade forex for free, one short step at a time.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: a private-bank ledger. Black lacquer and champagne gold; a curriculum "vault" on the home view, a reading room with a lesson rail inside each module. */
+/* Layout: one clear path. Home = "your next lesson" + a numbered step ladder. Lesson = one column, short version first, one big button forward. */
 :root{
-  --bg:#0c0b09; --surface:#15130f; --surface-2:#1c1914; --line:#2c271e;
-  --fg:#efe7d6; --muted:#a69d8a; --gold:#cfa95f; --gold-hi:#ecd39a; --on-gold:#17130b;
+  --bg:#0c0b09; --surface:#15130f; --surface-2:#1d1a14; --line:#2e281e;
+  --fg:#f1e9d8; --muted:#a9a08c; --gold:#d2ad63; --gold-hi:#ecd39a; --on-gold:#17130b;
   --up:#7cc49a; --down:#e0806f;
   --display:"Cormorant Garamond","Garamond","Times New Roman",Georgia,serif;
   --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -16,200 +16,210 @@
   color-scheme:dark;
 }
 @media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
-  --bg:#f5efe3; --surface:#fffcf5; --surface-2:#f0e8d8; --line:#e0d4bd;
-  --fg:#1b1710; --muted:#6a604e; --gold:#94702c; --gold-hi:#6f5218; --on-gold:#fffaf0;
+  --bg:#f6f0e4; --surface:#fffcf6; --surface-2:#efe6d4; --line:#e0d3ba;
+  --fg:#1b1710; --muted:#685e4c; --gold:#94702c; --gold-hi:#6f5218; --on-gold:#fffaf0;
   --up:#2f7d52; --down:#b04a3a; color-scheme:light;}}
 :root[data-theme="light"]{
-  --bg:#f5efe3; --surface:#fffcf5; --surface-2:#f0e8d8; --line:#e0d4bd;
-  --fg:#1b1710; --muted:#6a604e; --gold:#94702c; --gold-hi:#6f5218; --on-gold:#fffaf0;
+  --bg:#f6f0e4; --surface:#fffcf6; --surface-2:#efe6d4; --line:#e0d3ba;
+  --fg:#1b1710; --muted:#685e4c; --gold:#94702c; --gold-hi:#6f5218; --on-gold:#fffaf0;
   --up:#2f7d52; --down:#b04a3a; color-scheme:light;}
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--fg);font:16px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--fg);font:17px/1.7 var(--body);-webkit-font-smoothing:antialiased}
 a{color:var(--gold-hi)}
-a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.narrow{max-width:740px}
+h1,h2,h3{font-family:var(--display);font-weight:600;text-wrap:balance;line-height:1.1;margin:0}
+.gold{color:var(--gold-hi)}
+.label{font:700 12px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.muted{color:var(--muted)}
 
 /* header */
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--fg)}
-.mono-mark{width:38px;height:38px;border:1px solid var(--gold);display:grid;place-items:center;font:600 15px/1 var(--display);color:var(--gold);letter-spacing:.04em}
-.brand b{font:600 17px/1.1 var(--display);letter-spacing:.02em;display:block}
-.brand small{font:500 10px/1 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
-nav.links{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-nav.links a,.btn-ghost{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:10px 12px;border:1px solid transparent;background:none;cursor:pointer}
-nav.links a:hover,.btn-ghost:hover{color:var(--gold-hi)}
-nav.links a.nav-cta{color:var(--on-gold);background:var(--gold);border-color:var(--gold)}
-nav.links a.nav-cta:hover{background:var(--gold-hi);color:var(--on-gold)}
-.disclose{font-size:12px;color:var(--muted);margin:14px 0 0;max-width:60ch}
-nav.links a[aria-current="page"]{color:var(--gold-hi);border-color:var(--line)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--fg)}
+.mark{width:36px;height:36px;border:1px solid var(--gold);display:grid;place-items:center;font:700 17px/1 var(--display);color:var(--gold)}
+.brand b{font:700 21px/1 var(--display)}
+nav.links{display:flex;gap:4px;align-items:center}
+nav.links a,.ghost{font:700 13px/1 var(--body);color:var(--muted);text-decoration:none;padding:10px 12px;border-radius:999px;background:none;border:0;cursor:pointer}
+nav.links a:hover,.ghost:hover{color:var(--fg)}
+.ghost{display:grid;place-items:center}
+nav.links a[aria-current="page"]{color:var(--fg);background:var(--surface-2)}
+nav.links a.cta{background:var(--gold);color:var(--on-gold)}
+nav.links a.cta:hover{background:var(--gold-hi)}
 
-/* shared type */
-.eyebrow{font:600 11px/1 var(--body);letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
-h1,h2,h3{font-family:var(--display);font-weight:500;text-wrap:balance;line-height:1.12;margin:0}
-.gold{color:var(--gold-hi)}
-.btn{display:inline-flex;align-items:center;gap:10px;font:700 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;padding:16px 22px;background:var(--gold);color:var(--on-gold);border:1px solid var(--gold);text-decoration:none;cursor:pointer}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:800 16px/1 var(--body);padding:18px 26px;border-radius:999px;background:var(--gold);color:var(--on-gold);border:2px solid var(--gold);text-decoration:none;cursor:pointer;text-align:center}
 .btn:hover{background:var(--gold-hi);border-color:var(--gold-hi)}
-.btn.line{background:transparent;color:var(--gold-hi)}
-.btn.line:hover{background:var(--surface-2)}
+.btn.big{font-size:18px;padding:22px 30px;width:100%}
+.btn.line{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn.line:hover{border-color:var(--gold);background:transparent}
+.btn.small{font-size:14px;padding:12px 18px}
 
-/* hero */
-.hero{border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;padding-block:72px 64px;align-items:end}
-.hero h1{font-size:clamp(44px,7.4vw,96px);letter-spacing:-.01em;margin-top:18px}
+/* home: hero */
+.hero{padding-block:56px 40px;text-align:left}
+.hero h1{font-size:clamp(44px,8vw,80px)}
 .hero h1 em{font-style:italic;color:var(--gold-hi)}
-.hero p.lead{max-width:56ch;color:var(--muted);font-size:18px;margin:24px 0 32px}
-.hero .actions{display:flex;gap:12px;flex-wrap:wrap}
-.ticker{border:1px solid var(--line);background:var(--surface);font-family:var(--mono);font-size:13px}
-.ticker .row{display:grid;grid-template-columns:1fr auto auto;gap:14px;padding:12px 16px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
-.ticker .row:first-child{border-top:0;color:var(--muted);font-family:var(--body);font-size:10px;letter-spacing:.2em;text-transform:uppercase}
-.ticker .up{color:var(--up)} .ticker .down{color:var(--down)}
-.ticker .note{padding:10px 16px;border-top:1px solid var(--line);color:var(--muted);font:11px/1.4 var(--body)}
+.hero p{font-size:19px;color:var(--muted);max-width:52ch;margin:16px 0 0}
 
-/* stats strip */
-.strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
-.strip div{padding:22px 0;border-left:1px solid var(--line);padding-left:20px}
-.strip div:first-child{border-left:0;padding-left:0}
-.strip b{display:block;font:500 30px/1 var(--display);color:var(--gold-hi)}
-.strip span{font-size:12px;color:var(--muted);letter-spacing:.08em}
+/* next lesson card */
+.next{background:var(--surface);border:1px solid var(--gold);border-radius:20px;padding:28px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.next h2{font-size:clamp(28px,4vw,38px);margin:8px 0 6px}
+.next p{margin:0;color:var(--muted)}
+.meter{height:10px;background:var(--surface-2);border-radius:999px;overflow:hidden;margin-top:18px}
+.meter i{display:block;height:100%;background:var(--gold);border-radius:999px;transition:width .5s ease}
+.meter-label{font-size:14px;color:var(--muted);margin-top:8px}
 
-/* section heads */
-section.block{padding-block:72px}
-.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
-.sec-head h2{font-size:clamp(32px,4.4vw,52px)}
-.progress-line{min-width:240px}
-.progress-line .bar{height:2px;background:var(--line);margin-top:10px}
-.progress-line .bar i{display:block;height:100%;background:var(--gold);width:0;transition:width .6s ease}
-.progress-line small{color:var(--muted);font-size:12px;letter-spacing:.06em}
+/* how it works */
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-block:44px}
+.how div{display:flex;gap:14px;align-items:flex-start}
+.how b{flex:none;width:40px;height:40px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;font:700 18px/1 var(--display);color:var(--gold-hi)}
+.how strong{display:block;font-size:16px}
+.how span{font-size:15px;color:var(--muted);line-height:1.5}
 
-/* curriculum grid */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.mod{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 26px 26px;text-decoration:none;color:var(--fg);display:flex;flex-direction:column;gap:12px;min-height:240px;transition:background .25s}
-.mod:hover{background:var(--surface)}
-.mod .num{display:flex;justify-content:space-between;align-items:center;font:500 12px/1 var(--mono);color:var(--muted)}
-.mod .tier{font:600 10px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-.mod h3{font-size:26px}
-.mod p{margin:0;color:var(--muted);font-size:14px;flex:1}
-.mod .meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
-.chip{font:600 10px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;padding:6px 8px;border:1px solid var(--line);color:var(--muted)}
-.chip.done{border-color:var(--gold);color:var(--gold-hi)}
-.chip.going{border-color:var(--line);color:var(--fg)}
+/* path */
+.part{margin-top:48px}
+.part-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.part-head h2{font-size:32px}
+.steps{display:grid;gap:12px}
+.step{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:18px;align-items:center;padding:20px 22px;border:1px solid var(--line);border-radius:18px;background:var(--surface);text-decoration:none;color:var(--fg);transition:border-color .2s,transform .2s}
+.step:hover{border-color:var(--gold);transform:translateY(-1px)}
+.step.current{border-color:var(--gold);box-shadow:0 0 0 3px color-mix(in srgb,var(--gold) 22%,transparent)}
+.num{width:56px;height:56px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font:700 24px/1 var(--display);color:var(--muted)}
+.step.current .num{border-color:var(--gold);color:var(--gold-hi)}
+.step.done .num{background:var(--gold);border-color:var(--gold);color:var(--on-gold);font:800 22px/1 var(--body)}
+.step h3{font-size:25px}
+.step p{margin:2px 0 0;color:var(--muted);font-size:15px;line-height:1.5}
+.step .info{font-size:13px;color:var(--muted);margin-top:6px}
+.step .go{font:800 14px/1 var(--body);color:var(--gold-hi);white-space:nowrap}
+.mini{height:4px;background:var(--surface-2);border-radius:999px;margin-top:10px;max-width:220px;overflow:hidden}
+.mini i{display:block;height:100%;background:var(--gold)}
 
-/* code / manifesto */
-.code{background:var(--surface);border-block:1px solid var(--line)}
-.code .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;padding-block:72px}
-.code blockquote{margin:0;font:italic 400 clamp(28px,3.6vw,44px)/1.2 var(--display);color:var(--fg)}
+/* code */
+.code{margin-top:72px;border-top:1px solid var(--line);padding-top:56px}
+.code blockquote{margin:0 0 28px;font:italic 600 clamp(36px,5vw,56px)/1.1 var(--display)}
 .code blockquote span{color:var(--gold-hi)}
-.code ol{margin:0;padding:0;list-style:none;display:grid;gap:0}
-.code li{display:grid;grid-template-columns:56px 1fr;gap:12px;padding:16px 0;border-top:1px solid var(--line)}
-.code li:first-child{border-top:0;padding-top:0}
-.code li b{font:500 13px/1.6 var(--mono);color:var(--gold)}
-.code li strong{display:block;font-weight:700}
-.code li span{color:var(--muted);font-size:15px}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.rules div{border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.rules b{font:700 15px/1 var(--display);color:var(--gold);letter-spacing:.06em}
+.rules strong{display:block;margin:6px 0 4px;font-size:17px}
+.rules span{color:var(--muted);font-size:15px;line-height:1.5}
 
-footer{border-top:1px solid var(--line);padding-block:40px;color:var(--muted);font-size:13px}
-footer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-footer p{margin:0 0 10px;max-width:64ch}
+/* broker band */
+.band{margin-top:56px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.band h2{font-size:30px}
+.band p{margin:6px 0 0;color:var(--muted);max-width:52ch}
+.disclose{font-size:12px;color:var(--muted);margin-top:10px}
 
-/* reading room */
-.room{display:grid;grid-template-columns:280px minmax(0,1fr);gap:56px;padding-block:48px 80px}
-.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 86px);align-self:start;max-height:calc(100vh - 110px);overflow:auto}
-.rail .back{font:600 11px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:inline-block;margin-bottom:22px}
-.rail .back:hover{color:var(--gold-hi)}
-.rail h4{font:500 22px/1.2 var(--display);margin:6px 0 18px}
-.rail ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--line)}
-.rail li a{display:grid;grid-template-columns:28px 1fr;gap:8px;padding:10px 0 10px 16px;color:var(--muted);text-decoration:none;font-size:14px;line-height:1.4;margin-left:-1px;border-left:1px solid transparent}
-.rail li a:hover{color:var(--fg)}
-.rail li a[aria-current="page"]{color:var(--fg);border-left-color:var(--gold)}
-.rail li a .n{font:500 12px/1.6 var(--mono);color:var(--muted)}
-.rail li a.done .n{color:var(--gold)}
-.lesson{max-width:720px;min-width:0}
-.lesson .eyebrow{display:block;margin-bottom:14px}
-.lesson h1{font-size:clamp(34px,5vw,56px);margin-bottom:12px}
-.lesson .dek{font-size:19px;color:var(--muted);margin:0 0 36px;max-width:60ch}
-.prose{font-size:17px}
-.prose h2{font-size:30px;margin:48px 0 14px}
-.prose h3{font-size:22px;margin:32px 0 10px}
+footer{border-top:1px solid var(--line);padding-block:36px;margin-top:80px;color:var(--muted);font-size:13px;line-height:1.6}
+footer p{margin:0 0 10px;max-width:80ch}
+
+/* lesson */
+.ltop{padding-block:22px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.back{font:700 14px/1 var(--body);color:var(--muted);text-decoration:none}
+.back:hover{color:var(--fg)}
+.where{font-size:14px;color:var(--muted)}
+.dots{display:flex;gap:6px;margin:18px 0 34px}
+.dots a{flex:1;height:6px;border-radius:999px;background:var(--surface-2)}
+.dots a.done{background:var(--gold)}
+.dots a.here{background:var(--gold-hi);box-shadow:0 0 0 2px color-mix(in srgb,var(--gold-hi) 35%,transparent)}
+.lesson h1{font-size:clamp(40px,7vw,62px)}
+.readtime{color:var(--muted);font-size:14px;margin-top:10px}
+.short{background:var(--surface);border:1px solid var(--gold);border-radius:18px;padding:22px 24px;margin:28px 0 36px}
+.short .label{display:block;margin-bottom:8px}
+.short p{margin:0;font-size:20px;line-height:1.55;font-weight:500}
+.prose h2{font-size:32px;margin:44px 0 12px}
+.prose h3{font-size:24px;margin:30px 0 10px}
 .prose p{margin:0 0 18px}
 .prose ul,.prose ol{padding-left:22px;margin:0 0 20px}
 .prose li{margin-bottom:8px}
 .prose li::marker{color:var(--gold)}
-.prose strong{color:var(--fg)}
-.prose code,.mono{font-family:var(--mono);font-size:.9em;color:var(--gold-hi)}
-.table-wrap{overflow-x:auto;margin:6px 0 24px;border:1px solid var(--line)}
-table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
-th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font:600 10px/1.3 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);background:var(--surface)}
+.prose code,.mono{font-family:var(--mono);font-size:.88em;color:var(--gold-hi)}
+.table-wrap{overflow-x:auto;margin:6px 0 24px;border:1px solid var(--line);border-radius:14px}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:700 12px/1.3 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--surface)}
 tr:last-child td{border-bottom:0}
-td.num{font-family:var(--mono)}
-.formula{font-family:var(--mono);font-size:15px;background:var(--surface);border:1px solid var(--line);padding:16px 18px;margin:6px 0 22px;overflow-x:auto;color:var(--gold-hi);white-space:pre}
-.callout{border-left:2px solid var(--gold);background:var(--surface);padding:18px 22px;margin:28px 0}
-.callout .eyebrow{display:block;margin-bottom:8px}
+td.num{font-family:var(--mono);font-size:14px}
+.formula{font-family:var(--mono);font-size:15px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:6px 0 22px;overflow-x:auto;color:var(--gold-hi);white-space:pre}
+.callout{background:var(--surface-2);border-radius:16px;padding:18px 22px;margin:28px 0}
+.callout .eyebrow{display:block;margin-bottom:6px;font:700 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
 .callout p:last-child{margin-bottom:0}
-.callout.warn{border-left-color:var(--down)}
 .callout.warn .eyebrow{color:var(--down)}
-figure{margin:24px 0 28px;border:1px solid var(--line);background:var(--surface);padding:18px;overflow-x:auto}
+figure{margin:24px 0 28px;border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:18px;overflow-x:auto}
 figure svg{display:block;width:100%;height:auto;min-width:420px}
-figcaption{font-size:13px;color:var(--muted);margin-top:10px}
-.pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:48px;padding-top:28px}
-.complete-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:40px}
-.complete-row small{color:var(--muted)}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px}
+.finish{margin-top:48px;display:grid;gap:12px}
+.finish .row{display:flex;justify-content:space-between;gap:12px}
+details.all{margin-top:40px;border:1px solid var(--line);border-radius:16px;padding:4px 20px}
+details.all summary{cursor:pointer;font-weight:700;padding:14px 0}
+details.all ol{margin:0 0 14px;padding-left:22px}
+details.all li{padding:4px 0}
+details.all a{color:var(--fg);text-decoration:none}
+details.all a.here{color:var(--gold-hi);font-weight:700}
+details.all .tick{color:var(--gold)}
 
 /* quiz */
-.q{border:1px solid var(--line);background:var(--surface);padding:22px;margin-bottom:16px}
-.q h3{font:600 17px/1.45 var(--body);margin-bottom:14px}
-.q .opts{display:grid;gap:8px}
-.q button{text-align:left;font:15px/1.4 var(--body);color:var(--fg);background:var(--bg);border:1px solid var(--line);padding:12px 14px;cursor:pointer}
-.q button:hover:not(:disabled){border-color:var(--gold)}
-.q button.right{border-color:var(--up);color:var(--up)}
-.q button.wrong{border-color:var(--down);color:var(--down)}
-.q button:disabled{cursor:default}
-.q .why{margin-top:12px;font-size:14px;color:var(--muted)}
-.score{font:500 40px/1 var(--display);color:var(--gold-hi)}
+.qcard{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px}
+.qcard h2{font:700 22px/1.4 var(--body);margin-bottom:20px}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;font:600 17px/1.4 var(--body);color:var(--fg);background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--gold)}
+.opt.right{border-color:var(--up);color:var(--up)}
+.opt.wrong{border-color:var(--down);color:var(--down)}
+.opt:disabled{cursor:default}
+.why{margin-top:18px;padding:16px 18px;border-radius:14px;background:var(--surface-2);font-size:16px}
+.why b{display:block;margin-bottom:4px}
+.result{text-align:center;padding:24px 0}
+.result .score{font:700 88px/1 var(--display);color:var(--gold-hi)}
+.result h1{font-size:44px;margin:12px 0 8px}
+.result p{color:var(--muted);max-width:46ch;margin:0 auto 24px}
+.result .actions{display:grid;gap:12px;max-width:420px;margin:0 auto}
 
-/* tools */
-.tool{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);margin-bottom:40px}
-.tool .in{padding:28px;display:grid;gap:16px;border-right:1px solid var(--line);align-content:start}
-.tool .out{padding:28px;background:var(--surface);display:grid;gap:4px;align-content:start}
-label{display:grid;gap:6px;font:600 11px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-input,select{font:500 16px/1.2 var(--mono);color:var(--fg);background:var(--bg);border:1px solid var(--line);padding:12px;width:100%}
-.out .k{font:600 10px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+/* calculator */
+.tool{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:20px;overflow:hidden;margin:28px 0 48px}
+.tool .in{padding:26px;display:grid;gap:16px;align-content:start}
+.tool .out{padding:26px;background:var(--surface);display:grid;gap:4px;align-content:start;border-left:1px solid var(--line)}
+label{display:grid;gap:6px;font:700 14px/1.2 var(--body);color:var(--fg)}
+label small{font-weight:500;color:var(--muted)}
+input,select{font:500 17px/1.2 var(--mono);color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:13px;width:100%}
+.out .k{font-size:14px;color:var(--muted);margin-top:14px}
 .out .k:first-child{margin-top:0}
-.out .v{font:500 34px/1.1 var(--display);color:var(--gold-hi);font-variant-numeric:tabular-nums}
+.out .v{font:700 44px/1.1 var(--display);color:var(--gold-hi);font-variant-numeric:tabular-nums}
 .out .v.sm{font:500 18px/1.3 var(--mono);color:var(--fg)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 
-@media (max-width:960px){
-  .hero .wrap,.code .wrap,footer .wrap{grid-template-columns:1fr}
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .room{grid-template-columns:1fr;gap:28px}
-  .rail{position:static;max-height:none}
-}
-@media (max-width:620px){
-  .grid{grid-template-columns:1fr}
-  .strip{grid-template-columns:1fr 1fr}
-  .strip div:nth-child(3){border-left:0;padding-left:0}
-  .strip div{border-top:1px solid var(--line)}
+@media (max-width:760px){
+  .next{grid-template-columns:1fr}
+  .how{grid-template-columns:1fr}
   .tool,.two{grid-template-columns:1fr}
-  .tool .in{border-right:0;border-bottom:1px solid var(--line)}
-  nav.links a.hide-sm{display:none}
-  .hero .wrap{padding-block:48px}
+  .tool .out{border-left:0;border-top:1px solid var(--line)}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media (max-width:560px){
+  body{font-size:16px}
+  .step{grid-template-columns:44px minmax(0,1fr);gap:14px;padding:18px}
+  .num{width:44px;height:44px;font-size:20px}
+  .step .go{display:none}
+  .step h3{font-size:22px}
+  nav.links a.hide-sm{display:none}
+  .brand b{font-size:18px}
+  .hero{padding-block:40px 28px}
+}
+/* Cormorant defaults to old-style figures; force lining digits after every font shorthand */
+h1,h2,h3,.mark,.how b,.num,.step.done .num,.step.current .num,.out .v,.result .score,.rules b{font-variant-numeric:lining-nums tabular-nums}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#home"><span class="mono-mark">LL</span><span><b>Lux Life Academy</b><small>Forex · Free</small></span></a>
+    <a class="brand" href="#home"><span class="mark">LL</span><b>Lux Life Academy</b></a>
     <nav class="links">
-      <a href="#home" data-nav="home">Curriculum</a>
-      <a href="#tools" data-nav="tools">Tools</a>
-      <a href="#code" data-nav="code" class="hide-sm">The Code</a>
-      <a class="broker-link nav-cta" href="#" target="_blank" rel="noopener sponsored">Open broker account</a>
-      <button class="btn-ghost" id="theme-toggle" type="button" aria-label="Switch light or dark theme">Theme</button>
+      <a href="#home" data-nav="home" class="hide-sm">Course</a>
+      <a href="#tools" data-nav="tools" class="hide-sm">Calculator</a>
+      <a class="broker-link cta" href="#" target="_blank" rel="noopener sponsored">Open account</a>
+      <button class="ghost" id="theme-toggle" type="button" aria-label="Switch light or dark theme"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
     </nav>
   </div>
 </header>
@@ -218,13 +228,9 @@ input,select{font:500 16px/1.2 var(--mono);color:var(--fg);background:var(--bg);
 
 <footer>
   <div class="wrap">
-    <div>
-      <p><strong class="gold">Lux Life Academy</strong> teaches forex for free. The course costs nothing. We only ask that you open your trading account through our partner broker. The curriculum follows the classic beginner-to-advanced path made popular by the BabyPips School of Pipsology. Every lesson here is written in our own words. To go deeper, study the original at <a href="https://www.babypips.com/learn/forex" target="_blank" rel="noopener">babypips.com</a>.</p>
-      <p>Not affiliated with or endorsed by BabyPips. Lux Life Academy may earn a commission when you open an account through our broker link.</p>
-    </div>
-    <div>
-      <p><strong>Risk disclosure.</strong> This is education, not financial advice. Leveraged forex and CFD trading carries a high risk of loss, and most retail accounts lose money. Brokers in many regions publish the share of their own clients who lose; it is often above 60%. Trade only money you can afford to lose, and practise on a demo account first.</p>
-    </div>
+    <p><strong class="gold">Lux Life Academy</strong> teaches forex for free. We only ask that you open your trading account through our partner broker. Lux Life Academy may earn a commission when you do.</p>
+    <p>The course follows the beginner-to-advanced path made popular by the BabyPips School of Pipsology. Every lesson is written in our own words. Not affiliated with or endorsed by BabyPips.</p>
+    <p><strong>Risk warning.</strong> This is education, not financial advice. Forex trading with leverage is risky and most retail traders lose money. Only trade money you can afford to lose, and practise on a demo account first.</p>
   </div>
 </footer>
 
@@ -270,9 +276,9 @@ const SVG_FIB = `<figure><svg viewBox="0 0 560 250" role="img" aria-label="Fibon
 
 const COURSE = [
 /* ===================== MODULE 1 ===================== */
-{ id:1, tier:"Foundations", title:"The Arena", blurb:"What forex is, how currency pairs work, who moves the market, and when it trades.",
+{ id:1, title:"What Is Forex?", blurb:"What you are trading, who trades it, and when the market is open.",
 lessons:[
-{ t:"What Forex Actually Is", d:"The largest market on earth, and why it never sleeps.", h:`
+{ t:"What Is Forex?", k:"Forex means trading one country's money for another's. Traders try to buy a currency before it gets stronger, then sell it for a profit.", d:"The largest market on earth, and why it never sleeps.", h:`
 <p>Forex (FX) is the foreign exchange market, where currencies are exchanged for one another. Each time a tourist swaps dollars for euros, a company pays a supplier overseas, or a central bank adjusts its reserves, that is a forex transaction.</p>
 <p>It is the biggest financial market in the world. The Bank for International Settlements surveys it every three years, and daily turnover now runs well above <strong>$7 trillion</strong>. That is more than every stock exchange on the planet combined.</p>
 <h2>Over the counter, not on an exchange</h2>
@@ -280,7 +286,7 @@ lessons:[
 <h2>What you are really trading</h2>
 <p>When you trade forex you are betting on the <em>relative</em> strength of one economy against another. If you think the US economy will outperform Europe, you would expect the dollar to gain on the euro. Currency prices are a scoreboard for interest rates, growth, inflation, politics and sentiment.</p>
 <div class="callout"><span class="eyebrow">Lux note</span><p>Money never leaves the system. It rotates. When one currency weakens, capital flows somewhere else. Your job is to learn where it is flowing and get positioned before the crowd notices.</p></div>`},
-{ t:"Currency Pairs Decoded", d:"Base, quote, majors, crosses and exotics.", h:`
+{ t:"Currency Pairs", k:"Currencies always trade in twos, like EUR/USD. The price tells you how much of the second currency it takes to buy one of the first.", d:"Base, quote, majors, crosses and exotics.", h:`
 <p>Currencies are always quoted in pairs, because you are always buying one and selling another at the same time.</p>
 <div class="formula">EUR/USD = 1.0850
 base / quote  →  1 euro costs 1.0850 US dollars</div>
@@ -295,7 +301,7 @@ base / quote  →  1 euro costs 1.0850 US dollars</div>
 <tr><td>Exotics</td><td>A major paired with an emerging-market currency. Wider spreads, sharper moves.</td><td class="num">USD/MXN, USD/ZAR, USD/TRY, EUR/PLN</td></tr>
 </tbody></table></div>
 <div class="callout"><span class="eyebrow">Start here</span><p>Beginners should stick with the majors. Low cost, deep liquidity and endless free analysis make them the best classroom.</p></div>`},
-{ t:"Buying and Selling a Pair", d:"Going long, going short, and reading bid and ask.", h:`
+{ t:"Buying and Selling", k:"Buy a pair if you think the first currency will go up. Sell if you think it will go down. The small gap between the buy and sell price is the broker's fee.", d:"Going long, going short, and reading bid and ask.", h:`
 <p>In forex you can profit whether a currency rises or falls.</p>
 <ul><li><strong>Buy (go long)</strong> when you expect the base currency to strengthen against the quote. Buy EUR/USD if you think the euro will rise against the dollar.</li>
 <li><strong>Sell (go short)</strong> when you expect the base currency to weaken. Selling EUR/USD means selling euros and buying dollars at the same time.</li></ul>
@@ -309,7 +315,7 @@ base / quote  →  1 euro costs 1.0850 US dollars</div>
 <h2>A full round trip</h2>
 <p>You buy EUR/USD at 1.0852. Later the quote is 1.0900 / 1.0902. You close by selling at the bid, 1.0900. You captured 48 pips. If you had sold first and price fell instead, you would profit from the drop in the same way.</p>
 <div class="callout"><span class="eyebrow">Lux note</span><p>Our edge is to look for buys. Strong economies and strong trends do not stay pushed down for long, and pullbacks inside an uptrend are where the patient money gets in. Learn to short as well, though. A complete trader can see both sides of the chart.</p></div>`},
-{ t:"Who Moves the Market", d:"From central banks to you.", h:`
+{ t:"Who Trades Forex", k:"Big banks and governments move the market. Regular traders like us are small, so we follow the big money instead of fighting it.", d:"From central banks to you.", h:`
 <p>The forex market is a hierarchy. The closer a participant is to the top, the better their pricing and the bigger their influence.</p>
 <ol><li><strong>Central banks</strong> (the Fed, ECB, Bank of Japan, Bank of England). They set interest rates and can intervene directly. When they speak, everything moves.</li>
 <li><strong>The interbank market.</strong> The giant dealing banks such as JPMorgan, UBS, Citi, Deutsche and HSBC make prices for each other and handle most of the volume.</li>
@@ -317,7 +323,7 @@ base / quote  →  1 euro costs 1.0850 US dollars</div>
 <li><strong>Corporations</strong> converting revenue and paying for imports. They are not trying to profit from FX, but their flows are large.</li>
 <li><strong>Retail brokers and retail traders</strong>, that is, us. We reach the market through brokers who aggregate our orders.</li></ol>
 <p>Retail is a small slice of total volume. You will not move price. You need to read what the larger players are doing and travel in the same direction.</p>`},
-{ t:"When the Market Trades", d:"The four sessions and the golden overlap.", h:`
+{ t:"When the Market Is Open", k:"Forex is open 24 hours a day, Monday to Friday. The busiest time is 8 am to 12 pm New York time, when London and New York are both open.", d:"The four sessions and the golden overlap.", h:`
 <p>Forex opens Sunday evening and closes Friday evening, New York time, rolling through four main financial centres.</p>
 <div class="table-wrap"><table><thead><tr><th>Session</th><th>New York time (ET)</th><th>Character</th></tr></thead><tbody>
 <tr><td>Sydney</td><td class="num">5:00 pm – 2:00 am</td><td>Quiet open to the week. AUD and NZD active.</td></tr>
@@ -329,13 +335,13 @@ base / quote  →  1 euro costs 1.0850 US dollars</div>
 <h2>The overlaps are prime time</h2>
 <p>The <strong>London and New York overlap (8:00 am – 12:00 pm ET)</strong> is the most liquid window of the day. Spreads are tight and moves are clean. The Tokyo and London overlap is shorter but can also be active.</p>
 <div class="callout"><span class="eyebrow">Discipline</span><p>You do not need to watch charts all day. Pick the session that fits your life and master it. Late-Friday and holiday markets are thin and erratic, so leave them alone.</p></div>`},
-{ t:"Why Forex", d:"The advantages, and the trap that comes with them.", h:`
+{ t:"Why Trade Forex", k:"Forex is open almost all the time, cheap to start, and you can make money whether prices go up or down. The danger is borrowing too much, which is called leverage.", d:"The advantages, and the trap that comes with them.", h:`
 <ul><li><strong>24 hours, five days.</strong> Trade around a job, school or family.</li>
 <li><strong>Deep liquidity.</strong> Majors fill instantly in normal conditions.</li>
 <li><strong>Low entry cost.</strong> Micro lots let you start with a small account.</li>
 <li><strong>Two-way opportunity.</strong> Shorting is as simple as buying.</li>
 <li><strong>Free tools.</strong> Demo accounts, charts and economic calendars cost nothing.</li></ul>
-<div class="callout warn"><span class="eyebrow">The trap</span><p>The same leverage that makes small accounts viable also wipes them out. Most people who fail in forex do not fail for lack of strategy. They fail on <strong>risk</strong> and <strong>psychology</strong>. That is why two full modules of this course cover nothing else.</p></div>`}
+<div class="callout warn"><span class="eyebrow">The trap</span><p>The same leverage that makes small accounts viable also wipes them out. Most people who fail in forex do not fail for lack of strategy. They fail on <strong>risk</strong> and <strong>psychology</strong>. That is why two full steps of this course cover nothing else.</p></div>`}
 ],
 quiz:[
 {q:"In GBP/USD at 1.2700, which currency is the base?", o:["USD","GBP","Neither, both are equal","It depends on the broker"], a:1, w:"The base currency is always on the left. One pound costs 1.2700 dollars."},
@@ -345,9 +351,9 @@ quiz:[
 {q:"Which of these is a cross pair?", o:["USD/JPY","EUR/GBP","USD/MXN","AUD/USD"], a:1, w:"Crosses are two major currencies without the US dollar."}
 ]},
 /* ===================== MODULE 2 ===================== */
-{ id:2, tier:"Foundations", title:"The Mechanics", blurb:"Pips, lots, leverage, margin, order types and swap: the maths behind every trade.",
+{ id:2, title:"How a Trade Works", blurb:"Pips, lots and leverage: how you make or lose money on a trade.",
 lessons:[
-{ t:"Pips and Pipettes", d:"The unit that keeps score.", h:`
+{ t:"Pips", k:"A pip is the tiny unit that price moves in, usually 0.0001. You count your wins and losses in pips.", d:"The unit that keeps score.", h:`
 <p>A <strong>pip</strong> ("percentage in point") is the standard unit of price movement in forex.</p>
 <ul><li>For most pairs a pip is the <strong>fourth decimal</strong>: 0.0001. EUR/USD moving from 1.0850 to 1.0851 is one pip.</li>
 <li>For yen pairs a pip is the <strong>second decimal</strong>: 0.01. USD/JPY moving from 150.20 to 150.21 is one pip.</li></ul>
@@ -360,7 +366,7 @@ pip value (in USD)            = convert using the current rate</div>
 <div class="formula">0.01 × 100,000 = ¥1,000 per pip
 ¥1,000 ÷ 150.00 = $6.67 per pip</div>
 <p>You will rarely calculate this by hand, because platforms do it for you. Understanding it is what lets you size positions correctly. The <a href="#tools">position size tool</a> handles every pair.</p>`},
-{ t:"Lots and Position Size", d:"How much you are actually trading.", h:`
+{ t:"Lots", k:"A lot is the size of your trade. Bigger lots mean each pip is worth more money, whether you win or lose.", d:"How much you are actually trading.", h:`
 <p>Forex is traded in standard batches called <strong>lots</strong>.</p>
 <div class="table-wrap"><table><thead><tr><th>Lot</th><th>Units of base</th><th>Pip value on XXX/USD</th></tr></thead><tbody>
 <tr><td>Standard</td><td class="num">100,000</td><td class="num">$10.00</td></tr>
@@ -370,7 +376,7 @@ pip value (in USD)            = convert using the current rate</div>
 </tbody></table></div>
 <p>Platforms like MetaTrader write sizes as decimals: <span class="mono">1.00</span> is a standard lot, <span class="mono">0.10</span> is a mini and <span class="mono">0.01</span> is a micro.</p>
 <div class="callout"><span class="eyebrow">Example</span><p>You buy 0.30 lots of GBP/USD and it rises 40 pips. Profit = 40 pips × $3 per pip = <strong>$120</strong>. If it fell 40 pips you would lose $120. Lot size controls the dollar value of every pip.</p></div>`},
-{ t:"Leverage and Margin", d:"The amplifier, and why it cuts both ways.", h:`
+{ t:"Leverage and Margin", k:"Leverage lets you trade more money than you have. Margin is the deposit your broker holds while the trade is open. Leverage makes wins bigger and losses bigger.", d:"The amplifier, and why it cuts both ways.", h:`
 <p><strong>Leverage</strong> lets you control a large position with a small deposit. The deposit is called <strong>margin</strong>, a good-faith amount your broker sets aside while the trade is open.</p>
 <div class="formula">required margin = position value ÷ leverage
 100,000 EUR/USD at 1.0850 = $108,500 position
@@ -387,7 +393,7 @@ at 50:1 → $108,500 ÷ 50 = $2,170 margin</div>
 <li><strong>Margin level</strong>: equity ÷ used margin × 100%.</li>
 <li><strong>Margin call / stop out</strong>: if margin level drops below the broker's threshold, you are warned and then positions are closed automatically at a loss.</li></ul>
 <div class="callout warn"><span class="eyebrow">Real talk</span><p>Leverage does not change your risk per pip. <strong>Lot size</strong> does. High leverage only makes it easier to take a position that is too big. Size every trade by how much you are willing to lose, never by how much margin you have free.</p></div>`},
-{ t:"Order Types", d:"Every way to get in and out.", h:`
+{ t:"Order Types", k:"Orders tell your broker what to do: buy now, buy later at a better price, or close the trade automatically at a set loss or profit.", d:"Every way to get in and out.", h:`
 <div class="table-wrap"><table><thead><tr><th>Order</th><th>What it does</th></tr></thead><tbody>
 <tr><td>Market</td><td>Buy or sell immediately at the best available price.</td></tr>
 <tr><td>Buy limit</td><td>Buy <em>below</em> the current price. Used to buy a pullback into support.</td></tr>
@@ -403,12 +409,12 @@ at 50:1 → $108,500 ÷ 50 = $2,170 margin</div>
 <h2>Slippage</h2>
 <p>In fast markets, around news especially, your order may fill at a worse price than requested. A stop loss is not a guaranteed exit price unless your broker offers a guaranteed stop, usually for an extra fee.</p>
 <div class="callout"><span class="eyebrow">Lux note</span><p>The buy limit is our signature order. Decide your price in advance and let the market come to you. Chasing a breakout means paying retail. A limit at support means buying wholesale.</p></div>`},
-{ t:"Rollover and Swap", d:"Getting paid, or paying, to hold overnight.", h:`
+{ t:"Swap (Overnight Fees)", k:"Keep a trade open overnight and you either earn or pay a small interest fee, depending on the pair.", d:"Getting paid, or paying, to hold overnight.", h:`
 <p>Every currency carries an interest rate set by its central bank. When you hold a position past the daily rollover (5:00 pm ET), you earn or pay the <strong>interest rate differential</strong> between the two currencies. This is called <strong>swap</strong> or <strong>rollover</strong>.</p>
 <ul><li>Buy a currency with a <em>higher</em> rate against one with a <em>lower</em> rate, and you usually <strong>earn</strong> swap.</li>
 <li>Do the reverse and you <strong>pay</strong> it.</li></ul>
 <p>Most brokers apply three days of swap on Wednesday night to cover the weekend. Brokers also add their own markup, so check your platform's swap rates before holding trades for weeks.</p>
-<p>Earning swap while price moves your way is the basis of the <strong>carry trade</strong>, covered in Module 10.</p>`}
+<p>Earning swap while price moves your way is the basis of the <strong>carry trade</strong>, covered in Step 10.</p>`}
 ],
 quiz:[
 {q:"EUR/USD moves from 1.0850 to 1.0885. How many pips is that?", o:["3.5","35","350","0.35"], a:1, w:"0.0035 ÷ 0.0001 = 35 pips."},
@@ -418,9 +424,9 @@ quiz:[
 {q:"What actually controls how many dollars you gain or lose per pip?", o:["Leverage","Lot size","Account balance","Spread"], a:1, w:"Lot size sets pip value. Leverage only changes how much margin is locked."}
 ]},
 /* ===================== MODULE 3 ===================== */
-{ id:3, tier:"Foundations", title:"Brokers, Platforms & Charts", blurb:"Choosing a regulated broker, practising on demo, and learning to read price charts.",
+{ id:3, title:"Brokers & Charts", blurb:"Pick a safe broker, practise for free, and learn to read a price chart.",
 lessons:[
-{ t:"Choosing a Broker", d:"Your broker holds your money. Choose like it.", h:`
+{ t:"Choosing a Broker", k:"Your broker holds your money, so only use one that is licensed by a real government regulator.", d:"Your broker holds your money. Choose like it.", h:`
 <h2>Regulation first</h2>
 <p>Only use a broker licensed by a strong regulator: the <strong>CFTC and NFA</strong> (US), <strong>FCA</strong> (UK), <strong>ASIC</strong> (Australia), <strong>CySEC</strong> (EU) or similar. Check the licence number on the regulator's own website. Never take the broker's word for it.</p>
 <h2>How brokers make money</h2>
@@ -429,21 +435,21 @@ lessons:[
 <h2>What to compare</h2>
 <ul><li>Spreads and commissions on the pairs you actually trade</li><li>Execution speed and slippage</li><li>Platform (MetaTrader 4/5, cTrader, TradingView integration)</li><li>Deposit and withdrawal fees and speed</li><li>Segregated client funds and negative balance protection</li></ul>
 <div class="callout warn"><span class="eyebrow">Red flags</span><p>Guaranteed returns, "account managers" calling you to deposit more, bonuses that lock your withdrawals, and offshore-only licences. If someone DMs you about a forex opportunity, it is a scam.</p></div>`},
-{ t:"Demo Trading", d:"Your flight simulator.", h:`
+{ t:"Practise With a Demo", k:"A demo account uses fake money with real prices. Practise there until you can follow your rules every time.", d:"Your flight simulator.", h:`
 <p>Every serious broker offers a free <strong>demo account</strong> with virtual money and live prices. Use it to:</p>
 <ul><li>Learn the platform: placing orders, setting stops, reading your account.</li>
 <li>Test a strategy over at least 50 to 100 trades before risking money.</li>
 <li>Build habits: journaling, pre-trade checklists, risk rules.</li></ul>
 <p>Set the demo balance to the amount you will actually deposit. Trading a $100,000 demo when you plan to fund $1,000 teaches the wrong lessons.</p>
 <div class="callout"><span class="eyebrow">The step up</span><p>Demo cannot teach you how fear and greed feel with real money on the line. When you go live, start with micro lots so the emotions are real but the damage is small.</p></div>`},
-{ t:"Reading Charts", d:"Line, bar and candlestick.", h:`
+{ t:"Reading a Chart", k:"A chart shows price over time. On a candlestick chart, an up candle means price rose and a down candle means it fell.", d:"Line, bar and candlestick.", h:`
 <p>A price chart plots time on the horizontal axis and price on the vertical.</p>
 <ul><li><strong>Line chart</strong>: connects closing prices. Clean, good for the big picture.</li>
 <li><strong>Bar chart (OHLC)</strong>: each bar shows open, high, low and close. A tick on the left marks the open and one on the right marks the close.</li>
 <li><strong>Candlestick chart</strong>: the same four prices, drawn as a filled body with wicks. It is the most popular chart because the battle between buyers and sellers is visible at a glance.</li></ul>
 ${SVG_CANDLE}
 <h2>Timeframes</h2>
-<p>Each candle can represent one minute, one hour (H1), four hours (H4), one day (D1), one week or more. Higher timeframes carry more weight and contain less noise. Module 9 covers how to stack them.</p>`}
+<p>Each candle can represent one minute, one hour (H1), four hours (H4), one day (D1), one week or more. Higher timeframes carry more weight and contain less noise. Step 9 covers how to stack them.</p>`}
 ],
 quiz:[
 {q:"What is the first thing to check when choosing a broker?", o:["Biggest deposit bonus","Regulation by a strong authority","Most social media followers","Highest leverage"], a:1, w:"Your money's safety depends on regulation. Everything else comes after."},
@@ -452,9 +458,9 @@ quiz:[
 {q:"How should you size your demo account?", o:["As large as possible","The same as your planned live deposit","Exactly $1","Size doesn't matter"], a:1, w:"Matching your real deposit builds realistic habits."}
 ]},
 /* ===================== MODULE 4 ===================== */
-{ id:4, tier:"Technical", title:"Support & Resistance", blurb:"The floors and ceilings of price, trend lines, channels and role reversal.",
+{ id:4, title:"Support & Resistance", blurb:"Find the prices where the market likes to bounce.",
 lessons:[
-{ t:"Floors and Ceilings", d:"Where buyers and sellers make their stand.", h:`
+{ t:"Floors and Ceilings", k:"Support is a price floor where buyers step in. Resistance is a price ceiling where sellers step in. Price often bounces off them.", d:"Where buyers and sellers make their stand.", h:`
 <p><strong>Support</strong> is a price area where buying pressure has stopped price from falling further. <strong>Resistance</strong> is an area where selling pressure has stopped it rising. They exist because traders remember prices: where they bought, where they got hurt, where they missed out.</p>
 ${SVG_SR}
 <h2>How to draw them</h2>
@@ -462,14 +468,14 @@ ${SVG_SR}
 <h2>Role reversal</h2>
 <p>Once resistance breaks, it often turns into support, and once support breaks it often turns into resistance. The <strong>retest</strong> of a broken level is one of the cleanest entries in trading.</p>
 <div class="callout"><span class="eyebrow">Lux note</span><p>Price coming back to support in an uptrend is an opportunity. Sellers take profit, late shorts pile in, and the strong hands buy again. Mark those zones before price arrives, then wait.</p></div>`},
-{ t:"Trend Lines and Channels", d:"Mapping direction.", h:`
+{ t:"Trend Lines", k:"Connect the low points in an uptrend to draw a trend line. While price stays above it, the uptrend is still alive.", d:"Mapping direction.", h:`
 <ul><li><strong>Uptrend line</strong>: connect two or more rising swing lows. Price above it means bulls are in control.</li>
 <li><strong>Downtrend line</strong>: connect two or more falling swing highs.</li>
 <li>A third touch confirms the line. The more touches, the more it matters.</li></ul>
 <h2>Channels</h2>
 <p>Draw a parallel line across the opposite swings to form a <strong>channel</strong>. In an ascending channel, the lower line is the buy zone and the upper line is where you take profit.</p>
 <div class="callout"><span class="eyebrow">Discipline</span><p>Do not force lines onto a chart. If you have to squint to see it, the market cannot see it either. A steep trend line breaks quickly. A gentle one tends to last.</p></div>`},
-{ t:"Trading the Levels", d:"Bounce or break.", h:`
+{ t:"Bounce or Break", k:"At a level, price either bounces off it or breaks through. The safest trade is to wait for price to come back and test the level after a break.", d:"Bounce or break.", h:`
 <h2>The bounce</h2>
 <p>Buy near support with a stop just below the zone, and target the next resistance. Wait for a confirmation candle, such as a bullish engulfing or a hammer, before entering.</p>
 <h2>The break</h2>
@@ -485,16 +491,16 @@ quiz:[
 {q:"The most conservative breakout entry is:", o:["The first wick through the level","Before the break","The retest of the broken level","A random entry"], a:2, w:"Waiting for a retest filters many fakeouts."}
 ]},
 /* ===================== MODULE 5 ===================== */
-{ id:5, tier:"Technical", title:"Japanese Candlesticks", blurb:"Reading the psychology inside every candle and the patterns that signal turns.",
+{ id:5, title:"Candlesticks", blurb:"Learn what each bar on the chart is telling you.",
 lessons:[
-{ t:"Candle Anatomy", d:"Bodies, wicks and what they reveal.", h:`
+{ t:"Parts of a Candle", k:"Each candle shows four prices: open, high, low and close. The thick part is the body and the thin lines are the wicks.", d:"Bodies, wicks and what they reveal.", h:`
 ${SVG_CANDLE}
 <ul><li><strong>Long body</strong>: strong conviction. Buyers or sellers dominated the period.</li>
 <li><strong>Short body</strong>: indecision, little net movement.</li>
 <li><strong>Long upper wick</strong>: buyers pushed up, sellers slammed it back. That is rejection from above.</li>
 <li><strong>Long lower wick</strong>: sellers pushed down, buyers bought it back. That is rejection from below.</li></ul>
 <p>A <strong>marubozu</strong> is a candle with almost no wicks, total control by one side.</p>`},
-{ t:"Single-Candle Signals", d:"Doji, hammer, shooting star.", h:`
+{ t:"One-Candle Signals", k:"Some single candles, like the hammer and the shooting star, show the market rejecting a price and possibly turning around.", d:"Doji, hammer, shooting star.", h:`
 <div class="table-wrap"><table><thead><tr><th>Pattern</th><th>Look</th><th>Meaning</th></tr></thead><tbody>
 <tr><td>Doji</td><td>Open and close almost equal, a cross shape</td><td>Indecision. Watch for a reversal at key levels.</td></tr>
 <tr><td>Spinning top</td><td>Small body, wicks on both sides</td><td>Balance between buyers and sellers.</td></tr>
@@ -504,7 +510,7 @@ ${SVG_CANDLE}
 <tr><td>Shooting star</td><td>Same shape, after a rally</td><td>Bearish reversal. Buyers were rejected.</td></tr>
 </tbody></table></div>
 <p>A useful rule: the wick should be at least <strong>twice</strong> the length of the body.</p>`},
-{ t:"Multi-Candle Patterns", d:"Engulfing, stars, soldiers and crows.", h:`
+{ t:"Two- and Three-Candle Signals", k:"Patterns like the engulfing candle show one side taking control. They work best at support or resistance.", d:"Engulfing, stars, soldiers and crows.", h:`
 <ul><li><strong>Bullish engulfing</strong>: a bearish candle followed by a larger bullish candle whose body fully covers it. Buyers took over.</li>
 <li><strong>Bearish engulfing</strong>: the reverse, at the top of a move.</li>
 <li><strong>Tweezer bottoms and tops</strong>: two candles with matching lows (or highs). The level was defended twice.</li>
@@ -521,20 +527,20 @@ quiz:[
 {q:"What makes a candle pattern most reliable?", o:["Its colour","Appearing at a key level in the direction of the trend","Appearing on the 1-minute chart","Being very rare"], a:1, w:"Context such as levels and trend gives patterns their meaning."}
 ]},
 /* ===================== MODULE 6 ===================== */
-{ id:6, tier:"Technical", title:"Fibonacci", blurb:"Retracements and extensions: measuring where the pullback ends and where the move goes.",
+{ id:6, title:"Fibonacci", blurb:"Use a few simple lines to see where a pullback might stop.",
 lessons:[
-{ t:"Fibonacci Retracements", d:"Measuring the pullback.", h:`
+{ t:"Fibonacci Pullbacks", k:"Prices go up, pull back a little, then keep going. Fibonacci lines mark where pullbacks often stop, like 50% and 61.8%.", d:"Measuring the pullback.", h:`
 <p>Markets rarely move in a straight line. They advance, retrace part of the move, then continue. Fibonacci retracement levels mark common places for that pullback to stop.</p>
 <p>The key levels are <strong>23.6%, 38.2%, 50%, 61.8% and 78.6%</strong>. 50% is not a true Fibonacci ratio, but traders watch it closely.</p>
 ${SVG_FIB}
 <h2>How to draw them</h2>
 <ul><li><strong>Uptrend</strong>: click the swing low, drag to the swing high.</li><li><strong>Downtrend</strong>: click the swing high, drag to the swing low.</li><li>Use obvious, significant swings, the ones anyone would pick.</li></ul>`},
-{ t:"Extensions and Targets", d:"Where to take profit.", h:`
+{ t:"Profit Targets", k:"Fibonacci extensions, like 161.8%, help you guess how far the next move might go, so you know where to take profit.", d:"Where to take profit.", h:`
 <p>Fibonacci <strong>extensions</strong> project how far a move may travel beyond the prior swing. Common levels are <strong>127.2%, 161.8% and 261.8%</strong>.</p>
 <p>After buying a pullback at 61.8%, a trader might take partial profit at the previous high and the rest at the 161.8% extension.</p>
 <div class="formula">extension target = swing low + (swing range × 1.618)
 1.0800 + (0.0200 × 1.618) = 1.1124</div>`},
-{ t:"Fibonacci with Confluence", d:"Stacking reasons.", h:`
+{ t:"Stacking Reasons", k:"One reason to trade is weak. When a Fibonacci line, a support level and a good candle all line up, the trade is much stronger.", d:"Stacking reasons.", h:`
 <p>Fibonacci on its own is just lines. It becomes powerful when it <strong>lines up with something else</strong>:</p>
 <ul><li>A 61.8% level sitting on a prior resistance-turned-support zone</li><li>A 50% level touching a rising trend line</li><li>A 38.2% level meeting the 50-period moving average</li><li>A reversal candle forming right on the level</li></ul>
 <p>When three or more reasons agree, you have <strong>confluence</strong>, the closest thing trading has to an edge you can see.</p>
@@ -547,9 +553,9 @@ quiz:[
 {q:"Fibonacci levels are most reliable when:", o:["Used alone","They line up with other support or resistance","Drawn on random swings","Used only on Mondays"], a:1, w:"Confluence turns a line into a level."}
 ]},
 /* ===================== MODULE 7 ===================== */
-{ id:7, tier:"Technical", title:"Moving Averages & Indicators", blurb:"Trend tools and oscillators: MAs, Bollinger Bands, MACD, RSI, Stochastic, ATR and ADX.",
+{ id:7, title:"Indicators", blurb:"Tools like moving averages and RSI that help you spot the trend.",
 lessons:[
-{ t:"Moving Averages", d:"Smoothing the noise to see the trend.", h:`
+{ t:"Moving Averages", k:"A moving average is a smooth line showing the average price. If price is above it, the trend is usually up.", d:"Smoothing the noise to see the trend.", h:`
 <ul><li><strong>SMA (simple)</strong>: the plain average of the last N closes. Smooth but slow.</li>
 <li><strong>EMA (exponential)</strong>: weights recent prices more heavily. Faster, but gives more false signals.</li></ul>
 <div class="formula">10-period SMA = (sum of last 10 closes) ÷ 10</div>
@@ -558,20 +564,20 @@ lessons:[
 <li><strong>Dynamic support</strong>: in strong trends, price often pulls back to the 20 or 50 EMA, then continues.</li>
 <li><strong>Crossovers</strong>: a fast MA crossing above a slow MA suggests a trend may be starting. The 50/200 cross is called the "golden cross", and the bearish version is the "death cross".</li></ul>
 <div class="callout"><span class="eyebrow">Lux note</span><p>In an uptrend, a pullback to the 50 EMA that holds with a bullish candle is a classic buy setup. The trend pauses, it does not end.</p></div>`},
-{ t:"Bollinger Bands and ATR", d:"Measuring volatility.", h:`
+{ t:"Bollinger Bands and ATR", k:"These measure how much price is moving. Use them to spot when a big move may be coming and to set stops that are not too tight.", d:"Measuring volatility.", h:`
 <p><strong>Bollinger Bands</strong> place bands two standard deviations above and below a 20-period SMA.</p>
 <ul><li>Bands <strong>widen</strong> when volatility rises and <strong>squeeze</strong> when it falls. A tight squeeze often comes before a big move.</li>
 <li>In ranging markets, touches of the outer bands can signal reversals back toward the middle.</li></ul>
 <p><strong>ATR (Average True Range)</strong>, usually 14 periods, tells you how far a pair typically moves. It does not show direction. Use it to set stops that are wide enough: for example, place a stop 1.5 × ATR away from your entry.</p>`},
-{ t:"MACD", d:"Trend and momentum in one.", h:`
+{ t:"MACD", k:"MACD shows whether a trend is speeding up or slowing down. Use it to confirm what you already see on the chart.", d:"Trend and momentum in one.", h:`
 <p>MACD (Moving Average Convergence Divergence) has three parts, using the standard 12, 26 and 9 settings:</p>
 <ul><li><strong>MACD line</strong> = 12 EMA − 26 EMA</li><li><strong>Signal line</strong> = 9 EMA of the MACD line</li><li><strong>Histogram</strong> = MACD line − signal line</li></ul>
 <p>The MACD crossing above the signal line is bullish momentum. Crossing the zero line confirms a broader trend change. MACD lags because it is built from averages, so treat it as confirmation rather than a trigger.</p>`},
-{ t:"RSI and Stochastic", d:"Oscillators for overbought and oversold.", h:`
+{ t:"RSI and Stochastic", k:"These run from 0 to 100 and show when price has moved too far, too fast. On their own they are not buy or sell signals.", d:"Oscillators for overbought and oversold.", h:`
 <ul><li><strong>RSI</strong> (14) moves from 0 to 100. Above 70 is "overbought" and below 30 is "oversold".</li>
 <li><strong>Stochastic</strong> compares the close to the recent range. Above 80 is overbought and below 20 is oversold.</li></ul>
 <div class="callout warn"><span class="eyebrow">The classic mistake</span><p>Overbought does not mean "sell". In a strong uptrend, RSI can stay above 70 for weeks. Use oscillators in <strong>ranges</strong>, or use them to time entries <em>in the direction of the trend</em>. In an uptrend, buy when RSI dips toward 40 to 50 and turns back up.</p></div>`},
-{ t:"Choosing Your Tools", d:"Leading versus lagging, and avoiding clutter.", h:`
+{ t:"Picking Your Indicators", k:"Use one or two indicators at most. Adding more to your chart only adds confusion.", d:"Leading versus lagging, and avoiding clutter.", h:`
 <ul><li><strong>Leading</strong> indicators (RSI, Stochastic) try to anticipate turns. They give early signals but many false ones.</li>
 <li><strong>Lagging</strong> indicators (moving averages, MACD) confirm trends after they start. More reliable, but late.</li>
 <li><strong>ADX</strong> measures trend <em>strength</em>. Below 20 suggests a range and above 25 a trending market. Use it to pick which kind of tool to apply.</li></ul>
@@ -585,15 +591,15 @@ quiz:[
 {q:"ADX above 25 suggests:", o:["A trending market","A ranging market","The market is closed","High swap"], a:0, w:"ADX measures trend strength regardless of direction."}
 ]},
 /* ===================== MODULE 8 ===================== */
-{ id:8, tier:"Technical", title:"Chart Patterns & Pivots", blurb:"Reversal and continuation patterns, plus the floor-trader pivot points.",
+{ id:8, title:"Chart Patterns", blurb:"Shapes on the chart that often show up before a big move.",
 lessons:[
-{ t:"Reversal Patterns", d:"When a trend runs out of fuel.", h:`
+{ t:"Reversal Patterns", k:"Shapes like the double top and the head and shoulders often show up when a trend is about to turn around.", d:"When a trend runs out of fuel.", h:`
 <ul><li><strong>Double top</strong>: two highs at about the same level. Confirmed when price breaks the low between them (the neckline). Bearish.</li>
 <li><strong>Double bottom</strong>: two lows at about the same level, confirmed by a break above the neckline. Bullish.</li>
 <li><strong>Head and shoulders</strong>: a high, a higher high, then a lower high, with a neckline under them. A break of the neckline signals a reversal down.</li>
 <li><strong>Inverse head and shoulders</strong>: the bullish mirror image at the bottom of a downtrend.</li></ul>
 <div class="formula">measured move target = pattern height, projected from the neckline break</div>`},
-{ t:"Continuation Patterns", d:"The trend catching its breath.", h:`
+{ t:"Continuation Patterns", k:"Flags and triangles are pauses. Most of the time the trend keeps going in the same direction afterwards.", d:"The trend catching its breath.", h:`
 <ul><li><strong>Bull flag</strong>: a sharp rally (the pole) followed by a small, downward-sloping consolidation. A break up continues the trend.</li>
 <li><strong>Pennant</strong>: like a flag, but the consolidation forms a small symmetrical triangle.</li>
 <li><strong>Ascending triangle</strong>: flat resistance with rising lows. Usually breaks up.</li>
@@ -602,7 +608,7 @@ lessons:[
 <li><strong>Rising and falling wedges</strong>: a rising wedge is typically bearish and a falling wedge typically bullish.</li>
 <li><strong>Rectangle</strong>: a horizontal range. Trade the edges or the break.</li></ul>
 <div class="callout"><span class="eyebrow">Lux note</span><p>A bull flag shows money rotating back in. The pole is the smart money move, the flag is the crowd doubting it, and the breakout is the crowd buying back in at higher prices.</p></div>`},
-{ t:"Pivot Points", d:"The levels floor traders watched.", h:`
+{ t:"Pivot Points", k:"Pivot points are price levels worked out from yesterday's high, low and close. Many day traders watch them.", d:"The levels floor traders watched.", h:`
 <p>Pivot points use the previous period's high (H), low (L) and close (C) to project the next period's levels.</p>
 <div class="formula">PP = (H + L + C) ÷ 3
 R1 = 2 × PP − L        S1 = 2 × PP − H
@@ -618,9 +624,9 @@ quiz:[
 {q:"A bull flag is a:", o:["Reversal pattern","Continuation pattern","Volatility indicator","Order type"], a:1, w:"Flags are pauses within a trend."}
 ]},
 /* ===================== MODULE 9 ===================== */
-{ id:9, tier:"Advanced", title:"Divergence, Timeframes & Style", blurb:"Divergence signals, top-down analysis across timeframes, and finding your trading style.",
+{ id:9, title:"Timing Your Trades", blurb:"Use more than one chart timeframe and find a style that fits your life.",
 lessons:[
-{ t:"Divergence", d:"When price and momentum disagree.", h:`
+{ t:"Divergence", k:"When price and an indicator disagree, like price going higher while RSI goes lower, the move may be running out of steam.", d:"When price and momentum disagree.", h:`
 <div class="table-wrap"><table><thead><tr><th>Type</th><th>Price</th><th>Oscillator</th><th>Signal</th></tr></thead><tbody>
 <tr><td>Regular bullish</td><td>Lower low</td><td>Higher low</td><td>Possible reversal up</td></tr>
 <tr><td>Regular bearish</td><td>Higher high</td><td>Lower high</td><td>Possible reversal down</td></tr>
@@ -629,7 +635,7 @@ lessons:[
 </tbody></table></div>
 <p>Use RSI, MACD or Stochastic. Compare <strong>swing highs with swing highs</strong> and lows with lows, at the same points in time.</p>
 <div class="callout"><span class="eyebrow">Lux note</span><p>Hidden bullish divergence is the buy-the-dip signal written in maths. The trend is intact, momentum reset, and the dip is a gift.</p></div>`},
-{ t:"Multiple Timeframe Analysis", d:"Zoom out, then zoom in.", h:`
+{ t:"Zoom Out, Then Zoom In", k:"Check a big timeframe to see the trend, a middle one to find the setup, and a small one to time your entry.", d:"Zoom out, then zoom in.", h:`
 <p>Pick three timeframes, each roughly four to six times the one below it:</p>
 <div class="table-wrap"><table><thead><tr><th>Style</th><th>Trend (higher)</th><th>Setup (middle)</th><th>Entry (lower)</th></tr></thead><tbody>
 <tr><td>Day trader</td><td class="num">H4</td><td class="num">H1</td><td class="num">M15</td></tr>
@@ -640,7 +646,7 @@ lessons:[
 <li><strong>Middle timeframe</strong>: find the setup, such as a pullback to support or a Fib level.</li>
 <li><strong>Lower timeframe</strong>: time the entry with a candle pattern or a break of structure.</li></ol>
 <p>The higher timeframe wins arguments. A sell signal on the 15-minute chart inside a daily uptrend is a pullback, not a reversal.</p>`},
-{ t:"Find Your Trading Style", d:"Fit the method to your life.", h:`
+{ t:"Find Your Trading Style", k:"Some people trade for minutes, others hold for weeks. If you have a job, swing trading (holding for a few days) is usually easiest.", d:"Fit the method to your life.", h:`
 <div class="table-wrap"><table><thead><tr><th>Style</th><th>Hold time</th><th>Suits</th></tr></thead><tbody>
 <tr><td>Scalper</td><td>Seconds to minutes</td><td>Full-time focus, fast decisions, very low costs needed</td></tr>
 <tr><td>Day trader</td><td>Minutes to hours, flat by day's end</td><td>A few dedicated hours each day</td></tr>
@@ -656,9 +662,9 @@ quiz:[
 {q:"Which style usually suits someone with a full-time job?", o:["Scalping","Swing trading","High-frequency trading","None"], a:1, w:"Swing trading needs analysis about once a day."}
 ]},
 /* ===================== MODULE 10 ===================== */
-{ id:10, tier:"Advanced", title:"Fundamentals & Sentiment", blurb:"Interest rates, economic data, news, correlations, the carry trade and market sentiment.",
+{ id:10, title:"News & the Economy", blurb:"How interest rates and big news make currencies move.",
 lessons:[
-{ t:"Interest Rates Rule", d:"The number one driver of currencies.", h:`
+{ t:"Interest Rates", k:"When a country raises interest rates, its currency usually gets stronger, because investors want the higher return.", d:"The number one driver of currencies.", h:`
 <p>Capital flows toward higher, rising returns. When a central bank raises rates, or signals it will, its currency usually strengthens. When it cuts, the currency usually weakens.</p>
 <ul><li><strong>Hawkish</strong>: leaning toward higher rates to fight inflation. Bullish for the currency.</li>
 <li><strong>Dovish</strong>: leaning toward lower rates to support growth. Bearish for the currency.</li></ul>
@@ -669,7 +675,7 @@ lessons:[
 <tr><td>Bank of Japan</td><td>JPY</td><td>Policy shifts, intervention warnings</td></tr>
 <tr><td>Bank of England</td><td>GBP</td><td>MPC vote split</td></tr>
 </tbody></table></div>`},
-{ t:"Economic Data That Moves Price", d:"Your economic calendar.", h:`
+{ t:"News That Moves Price", k:"Big reports like jobs numbers and inflation can make price jump fast. Check the economic calendar before you trade.", d:"Your economic calendar.", h:`
 <div class="table-wrap"><table><thead><tr><th>Release</th><th>Measures</th><th>Why it matters</th></tr></thead><tbody>
 <tr><td>CPI / PCE</td><td>Inflation</td><td>Drives rate expectations</td></tr>
 <tr><td>Non-Farm Payrolls (NFP)</td><td>US jobs, first Friday of the month at 8:30 am ET</td><td>The most volatile regular release</td></tr>
@@ -680,17 +686,17 @@ lessons:[
 </tbody></table></div>
 <p>The surprise is what moves price: <strong>actual versus forecast</strong>. Use a free economic calendar and note every high-impact event for your pairs before the week starts.</p>
 <div class="callout warn"><span class="eyebrow">News risk</span><p>Spreads widen and slippage spikes around major releases. Beginners should be flat, or have stops set and accept wider fills, during high-impact news.</p></div>`},
-{ t:"Risk-On, Risk-Off and Correlations", d:"How money rotates.", h:`
+{ t:"Fear vs Greed", k:"When people are scared, money runs to safe currencies like the US dollar and the yen. When people feel good, money moves into riskier ones.", d:"How money rotates.", h:`
 <ul><li><strong>Risk-on</strong> (optimism): money flows into higher-yielding and commodity currencies such as AUD and NZD, and into stocks.</li>
 <li><strong>Risk-off</strong> (fear): money runs to safe havens: USD, JPY, CHF and gold.</li></ul>
 <h2>Correlations</h2>
 <ul><li>EUR/USD and GBP/USD often move together, a positive correlation.</li><li>EUR/USD and USD/CHF often move opposite each other, a negative correlation.</li><li>AUD tracks metals, CAD tracks oil, and the US Dollar Index (DXY) shows the dollar's overall strength.</li></ul>
 <p>Buying EUR/USD and GBP/USD together is close to doubling one bet. Check correlations so you do not stack hidden risk.</p>
 <div class="callout"><span class="eyebrow">Lux note</span><p>Fear sends money into safe havens, and greed brings it back out. The rotation never stops. Learn to read which phase the market is in.</p></div>`},
-{ t:"The Carry Trade", d:"Getting paid to wait.", h:`
+{ t:"The Carry Trade", k:"Buy a currency with high interest against one with low interest, and you get paid a little for each day you hold it.", d:"Getting paid to wait.", h:`
 <p>Buy a high-interest currency against a low-interest one, earn the daily swap, and ideally gain from price appreciation too. For years the classic carry was long AUD/JPY or NZD/JPY.</p>
 <p>Carry trades work best in calm, risk-on markets. When fear spikes, everyone exits at once and carry pairs can fall violently, wiping out months of interest in days. Always use a stop.</p>`},
-{ t:"Reading Sentiment", d:"What is the crowd doing?", h:`
+{ t:"What Is the Crowd Doing?", k:"Reports show how other traders are positioned. When almost everyone is on one side, the market often turns the other way.", d:"What is the crowd doing?", h:`
 <ul><li><strong>COT report</strong>: the CFTC publishes the Commitments of Traders every Friday, using data from Tuesday. It shows how large speculators are positioned in currency futures. Extreme positioning often comes before reversals.</li>
 <li><strong>Retail positioning</strong>: many brokers show what percentage of their clients are long or short. Retail traders are often on the wrong side at turning points, so traders use extreme readings as a contrarian signal.</li></ul>
 <p>Sentiment is a backdrop, not a trigger. Combine it with your technical setup.</p>`}
@@ -703,16 +709,16 @@ quiz:[
 {q:"The main danger of a carry trade is:", o:["Earning too much swap","Sharp unwinds during risk-off panics","Too little volatility","High commissions"], a:1, w:"When fear hits, carry positions get dumped all at once."}
 ]},
 /* ===================== MODULE 11 ===================== */
-{ id:11, tier:"Mastery", title:"Risk & Money Management", blurb:"Position sizing, the 1% rule, risk-to-reward and drawdown maths. This is the part that keeps you in the game.",
+{ id:11, title:"Protecting Your Money", blurb:"How much to risk on each trade so one bad trade never wipes you out.",
 lessons:[
-{ t:"The Maths of Ruin", d:"Why protecting capital comes first.", h:`
+{ t:"Why Losses Hurt So Much", k:"If you lose half your account, you have to double what is left just to get back to even. Protecting your money comes first.", d:"Why protecting capital comes first.", h:`
 <p>Losses and gains are not symmetrical. The deeper the hole, the harder the climb:</p>
 <div class="table-wrap"><table><thead><tr><th>Drawdown</th><th>Gain needed to recover</th></tr></thead><tbody>
 <tr><td class="num">10%</td><td class="num">11.1%</td></tr><tr><td class="num">20%</td><td class="num">25.0%</td></tr><tr><td class="num">30%</td><td class="num">42.9%</td></tr><tr><td class="num">40%</td><td class="num">66.7%</td></tr><tr><td class="num">50%</td><td class="num">100.0%</td></tr><tr><td class="num">75%</td><td class="num">300.0%</td></tr>
 </tbody></table></div>
 <p>Even a great strategy has losing streaks of eight, ten or more trades. If you risk 10% per trade, ten losses ends you. If you risk 1%, ten losses is a bad week you recover from.</p>
 <div class="callout"><span class="eyebrow">Lux note</span><p>Taking risks others will not does not mean betting the account. The richest players are the ones who are still at the table. Survive first, compound second.</p></div>`},
-{ t:"The 1–2% Rule and Position Sizing", d:"The most important formula in this course.", h:`
+{ t:"How Much to Risk", k:"Risk only 1% of your account on each trade. The calculator turns that into the right lot size for you.", d:"The most important formula in this course.", h:`
 <p>Risk a fixed, small percentage of your account on every trade, usually <strong>1%</strong> and never more than 2%. Then let your stop distance decide your lot size.</p>
 <div class="formula">lots = (account × risk %) ÷ (stop in pips × pip value per lot)
 
@@ -722,14 +728,14 @@ $100 ÷ (25 × $10) = 0.40 lots</div>
 <p>A wider stop means a smaller position, and a tighter stop means a larger one. The dollar risk stays the same. Try it in the <a href="#tools">position size tool</a>.</p>
 <h2>Stop placement</h2>
 <p>Place stops where your trade idea is <strong>proven wrong</strong>: beyond the support zone, beyond the swing low, or 1 to 1.5 × ATR away. Never base a stop on how much you are "comfortable" losing in pips. Choose the logical level first, then size the trade to fit it.</p>`},
-{ t:"Risk-to-Reward and Win Rate", d:"You do not need to be right most of the time.", h:`
+{ t:"Win Big, Lose Small", k:"If your wins are twice as big as your losses, you can be wrong more than half the time and still make money.", d:"You do not need to be right most of the time.", h:`
 <div class="table-wrap"><table><thead><tr><th>Risk : Reward</th><th>Win rate needed to break even</th></tr></thead><tbody>
 <tr><td class="num">1 : 1</td><td class="num">50%</td></tr><tr><td class="num">1 : 1.5</td><td class="num">40%</td></tr><tr><td class="num">1 : 2</td><td class="num">33.3%</td></tr><tr><td class="num">1 : 3</td><td class="num">25%</td></tr>
 </tbody></table></div>
 <div class="formula">expectancy per trade = (win% × avg win) − (loss% × avg loss)
 45% × 2R − 55% × 1R = +0.35R per trade</div>
 <p>With a 1:2 ratio, you can be wrong more often than you are right and still grow the account. Aim for at least <strong>1:1.5 to 1:2</strong> on every setup, and skip trades that do not offer it.</p>`},
-{ t:"Protecting the Account", d:"Rules that save you from yourself.", h:`
+{ t:"Rules That Protect You", k:"Always use a stop loss, never move it further away, and stop trading for the day after a few losses.", d:"Rules that save you from yourself.", h:`
 <ul><li><strong>Always use a stop loss.</strong> Set it when you enter the trade.</li>
 <li><strong>Never widen a stop</strong> to avoid taking a loss.</li>
 <li><strong>Daily loss limit</strong>: stop trading for the day after losing 2 to 3%.</li>
@@ -745,9 +751,9 @@ quiz:[
 {q:"Your trade moves against you near the stop. You should:", o:["Widen the stop","Add to the position","Let the stop do its job","Turn off the platform"], a:2, w:"Widening stops is how small losses become account-ending ones."}
 ]},
 /* ===================== MODULE 12 ===================== */
-{ id:12, tier:"Mastery", title:"Mindset & The Trading Plan", blurb:"Psychology, journaling, building your written plan, and the path from demo to funded.",
+{ id:12, title:"Your Trading Plan", blurb:"Control your emotions, keep a journal, and write your own rules.",
 lessons:[
-{ t:"The Psychology of Trading", d:"The market is a mirror.", h:`
+{ t:"Your Emotions", k:"Fear, greed and trying to win back losses are what blow up most accounts. Follow your rules, even when you don't feel like it.", d:"The market is a mirror.", h:`
 <p>Trading skills that have nothing to do with charts decide most outcomes: patience, emotional control, discipline and honesty with yourself.</p>
 <ul><li><strong>Fear</strong>: skipping valid setups, closing winners too early.</li>
 <li><strong>Greed</strong>: oversizing, moving targets, refusing to take profit.</li>
@@ -756,11 +762,11 @@ lessons:[
 <li><strong>Overconfidence</strong>: a winning streak makes you abandon the rules.</li></ul>
 <p>Think in probabilities. Any single trade can lose even when it is a perfect setup. Your edge only shows over the next hundred trades.</p>
 <div class="callout"><span class="eyebrow">Lux note</span><p>You are learning skills beyond trading: patience, self-control, record-keeping and emotional discipline. These make you dangerous in every business, not just on the chart.</p></div>`},
-{ t:"The Trading Journal", d:"Your private database of edge.", h:`
+{ t:"Keep a Journal", k:"Write down every trade and why you took it. Over time your journal shows you what works and what doesn't.", d:"Your private database of edge.", h:`
 <p>Record every trade:</p>
 <ul><li>Date, pair, direction, entry, stop, target, lot size</li><li>The setup and your reasons for taking it, with a screenshot</li><li>Result in pips, dollars and R-multiple</li><li>How you felt before, during and after the trade</li><li>Whether you followed your plan (yes or no)</li></ul>
 <p>Review weekly. Look for patterns: which setups pay, which sessions bleed money, which emotions come before your worst trades. A journal turns experience into data.</p>`},
-{ t:"Building Your Trading Plan", d:"Write it down or it is not real.", h:`
+{ t:"Write Your Trading Plan", k:"A trading plan is your personal rulebook: what you trade, when you trade, and how much you risk.", d:"Write it down or it is not real.", h:`
 <p>A trading plan is a written rulebook you follow without debate. Use this template:</p>
 <ol><li><strong>Goals</strong>: realistic monthly process goals, such as "follow my rules on 100% of trades", not money targets.</li>
 <li><strong>Markets</strong>: which pairs, at most three to five to start.</li>
@@ -771,7 +777,7 @@ lessons:[
 <li><strong>Risk rules</strong>: % per trade, daily and weekly limits, maximum open positions.</li>
 <li><strong>Routine</strong>: pre-session checklist, news check, post-session journal.</li></ol>
 <div class="callout"><span class="eyebrow">Example setup: The Lux Pullback</span><p>Daily chart above the 200 SMA (uptrend). Price pulls back to a support zone that lines up with the 50% to 61.8% Fib retracement. A bullish engulfing or hammer forms on H4. Enter long, stop below the swing low, first target the prior high, second target the 161.8% extension. Risk 1%.</p></div>`},
-{ t:"From Demo to Live to Funded", d:"The path forward.", h:`
+{ t:"From Practice to Real Money", k:"Practise on a demo first, start real trading with tiny sizes, and grow slowly once you are consistent.", d:"The path forward.", h:`
 <ol><li><strong>Learn</strong>: finish this course and review the modules you scored lowest on.</li>
 <li><strong>Demo</strong>: trade your written plan for at least 2 to 3 months, or 50 to 100 trades, and journal everything.</li>
 <li><strong>Evaluate</strong>: is the expectancy positive? Did you follow your rules?</li>
@@ -789,177 +795,218 @@ quiz:[
 ]}
 ];
 
+
 /* ---------- state ---------- */
 const KEY="ll-academy-v1";
 let state={done:{},quiz:{}};
 try{const s=JSON.parse(localStorage.getItem(KEY)||"null"); if(s&&s.done&&s.quiz) state=s;}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+const PARTS=[{t:"The Basics",ids:[1,2,3]},{t:"Reading Charts",ids:[4,5,6,7,8]},{t:"Going Deeper",ids:[9,10]},{t:"Staying in the Game",ids:[11,12]}];
 const totalLessons=COURSE.reduce((n,m)=>n+m.lessons.length,0);
-const lessonKey=(m,l)=>m+"-"+l;
-function modDone(m){return m.lessons.filter((_,i)=>state.done[lessonKey(m.id,i+1)]).length}
-function modStatus(m){const d=modDone(m),q=state.quiz[m.id];
-  if(d===m.lessons.length&&q!=null&&q>=0.8) return ["Mastered","done"];
-  if(d>0||q!=null) return [d+" / "+m.lessons.length+" read","going"];
-  return ["Not started",""];}
+const key=(m,l)=>m+"-"+l;
 const app=document.getElementById("app");
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const mins=h=>Math.max(2,Math.round(h.replace(/<[^>]+>/g," ").split(/\s+/).length/200));
+const modMins=m=>m.lessons.reduce((n,l)=>n+mins(l.h),0);
+const doneIn=m=>m.lessons.filter((_,i)=>state.done[key(m.id,i+1)]).length;
+const mastered=m=>doneIn(m)===m.lessons.length&&(state.quiz[m.id]||0)>=0.8;
+const doneCount=()=>Object.keys(state.done).filter(k=>state.done[k]).length;
+function nextSpot(){
+  for(const m of COURSE){
+    for(let i=0;i<m.lessons.length;i++) if(!state.done[key(m.id,i+1)]) return {m,li:i+1,href:`#m${m.id}-l${i+1}`};
+    if((state.quiz[m.id]||0)<0.8) return {m,li:"quiz",href:`#m${m.id}-quiz`};
+  }
+  return null;
+}
 
-/* ---------- views ---------- */
+/* ---------- home ---------- */
 function viewHome(scrollTo){
-  const doneCount=Object.keys(state.done).filter(k=>state.done[k]).length;
-  const pct=Math.round(doneCount/totalLessons*100);
-  const next=(()=>{for(const m of COURSE)for(let i=0;i<m.lessons.length;i++)if(!state.done[lessonKey(m.id,i+1)])return "#m"+m.id+"-l"+(i+1);return "#m12-quiz"})();
-  app.innerHTML=`
-  <section class="hero"><div class="wrap">
-    <div>
-      <span class="eyebrow">Free forex course · 12 modules · ${totalLessons} lessons</span>
-      <h1>Learn forex.<br><em>Live the Lux Life.</em></h1>
-      <p class="lead">A complete forex education from your first pip to a written trading plan. Learn how the market works, how to read it, and how to manage risk so you stay in the game long enough to win.</p>
-      <div class="actions"><a class="btn" href="${next}">${doneCount?"Continue where you left off":"Begin Module 1"} →</a><a class="btn line broker-link" href="#" target="_blank" rel="noopener sponsored">Open your broker account</a></div>
-      <p class="disclose">Free course. Open your account through our partner broker to support it. Lux Life Academy may earn a commission when you do.</p>
-    </div>
-    <div class="ticker" aria-label="Sample quote board">
-      <div class="row"><span>Pair</span><span>Bid</span><span>Pips</span></div>
-      <div class="row"><span>EUR/USD</span><span>1.08504</span><span class="up">+32.4</span></div>
-      <div class="row"><span>GBP/USD</span><span>1.27118</span><span class="up">+18.9</span></div>
-      <div class="row"><span>USD/JPY</span><span>150.214</span><span class="down">−41.0</span></div>
-      <div class="row"><span>AUD/USD</span><span>0.65892</span><span class="up">+9.7</span></div>
-      <div class="row"><span>USD/CAD</span><span>1.36440</span><span class="down">−12.2</span></div>
-      <div class="note">Illustrative prices for teaching. You will learn to read every column in Module 2.</div>
-    </div>
-  </div></section>
-  <div class="wrap"><div class="strip">
-    <div><b>12</b><span>Modules</span></div><div><b>${totalLessons}</b><span>Lessons</span></div><div><b>${COURSE.reduce((n,m)=>n+m.quiz.length,0)}</b><span>Quiz questions</span></div><div><b>$0</b><span>Forever free</span></div>
-  </div></div>
-  <section class="block" id="curriculum"><div class="wrap">
-    <div class="sec-head"><div><span class="eyebrow">The curriculum</span><h2>From the arena<br>to the trading plan.</h2></div>
-      <div class="progress-line"><small>Your progress · ${doneCount} of ${totalLessons} lessons · ${pct}%</small><div class="bar"><i style="width:${pct}%"></i></div></div></div>
-    <div class="grid">${COURSE.map(m=>{const [s,c]=modStatus(m);return `
-      <a class="mod" href="#m${m.id}-l1"><div class="num"><span>Module ${String(m.id).padStart(2,"0")}</span><span class="tier">${m.tier}</span></div>
-      <h3>${m.title}</h3><p>${m.blurb}</p>
-      <div class="meta"><span>${m.lessons.length} lessons + quiz</span><span class="chip ${c}">${s}</span></div></a>`}).join("")}</div>
-  </div></section>
-  <section class="code" id="code"><div class="wrap">
+  const n=doneCount(), pct=Math.round(n/totalLessons*100), nx=nextSpot();
+  const curId=nx?nx.m.id:0;
+  const nextCard=nx?`
+    <div class="next">
+      <div>
+        <span class="label">${n?"Pick up where you left off":"Start here"}</span>
+        <h2>${nx.li==="quiz"?`Step ${nx.m.id} quiz`:esc(nx.m.lessons[nx.li-1].t)}</h2>
+        <p>Step ${nx.m.id}: ${esc(nx.m.title)} · ${nx.li==="quiz"?"5 quick questions":"Lesson "+nx.li+" of "+nx.m.lessons.length+" · "+mins(nx.m.lessons[nx.li-1].h)+" min read"}</p>
+        <div class="meter"><i style="width:${pct}%"></i></div>
+        <div class="meter-label">${n} of ${totalLessons} lessons done (${pct}%)</div>
+      </div>
+      <a class="btn" href="${nx.href}">${n?"Continue":"Start lesson 1"} →</a>
+    </div>`:`
+    <div class="next"><div><span class="label">Course complete</span><h2>You finished every step.</h2><p>Now practise your plan on a demo account.</p></div><a class="btn broker-link" href="#" target="_blank" rel="noopener sponsored">Open a demo →</a></div>`;
+  app.innerHTML=`<div class="wrap">
+  <section class="hero">
+    <span class="label">Free forex course</span>
+    <h1>Learn to trade forex.<br><em>One step at a time.</em></h1>
+    <p>12 steps, from "what is forex?" to your own trading plan. Each lesson takes a few minutes and starts with a short summary.</p>
+  </section>
+  ${nextCard}
+  <div class="how">
+    <div><b>1</b><p style="margin:0"><strong>Read a short lesson</strong><span>Every lesson starts with a 10-second summary.</span></p></div>
+    <div><b>2</b><p style="margin:0"><strong>Take a quick quiz</strong><span>About 5 questions at the end of each step.</span></p></div>
+    <div><b>3</b><p style="margin:0"><strong>Move to the next step</strong><span>Your progress saves on this device.</span></p></div>
+  </div>
+  ${PARTS.map((p,pi)=>`<section class="part"><div class="part-head"><span class="label">Part ${pi+1}</span><h2>${p.t}</h2></div><div class="steps">
+    ${p.ids.map(id=>{const m=COURSE.find(x=>x.id===id),d=doneIn(m),ms=mastered(m),cur=id===curId;
+      const go=ms?"Review":d||state.quiz[id]!=null?"Continue →":cur?"Start →":"Open";
+      const href=ms?`#m${id}-l1`:(cur&&nx?nx.href:`#m${id}-l1`);
+      return `<a class="step ${ms?"done":""} ${cur?"current":""}" href="${href}">
+        <span class="num">${ms?"✓":id}</span>
+        <div><h3>${esc(m.title)}</h3><p>${esc(m.blurb)}</p>
+        <div class="info">${m.lessons.length} lessons · about ${modMins(m)} min${d?` · ${d} done`:""}</div>
+        ${d&&!ms?`<div class="mini"><i style="width:${d/m.lessons.length*100}%"></i></div>`:""}</div>
+        <span class="go">${go}</span></a>`}).join("")}
+  </div></section>`).join("")}
+  <section class="band"><div><h2>Trade size calculator</h2><p>Find the right lot size for any trade so you never risk more than you planned.</p></div><a class="btn line" href="#tools">Open calculator →</a></section>
+  <section class="band" style="margin-top:16px"><div><h2>Ready to practise?</h2><p>Open a free demo account with our partner broker and try what you learn with fake money first.</p><p class="disclose">We may earn a commission if you open an account.</p></div><a class="btn broker-link" href="#" target="_blank" rel="noopener sponsored">Open your account →</a></section>
+  <section class="code" id="code">
+    <span class="label">The Code</span>
     <blockquote>“If not me, <span>then who?</span>”</blockquote>
-    <ol>
-      <li><b>I.</b><div><strong>Always be looking to buy.</strong><span>Strong markets do not stay down for long. Pullbacks in a trend are where patient capital gets in.</span></div></li>
-      <li><b>II.</b><div><strong>Money never disappears, it rotates.</strong><span>Fear pushes it out and greed brings it back. Learn the cycle and be positioned when it turns.</span></div></li>
-      <li><b>III.</b><div><strong>Take the risks others will not, with a stop.</strong><span>Boldness in the idea, discipline in the size. Survival is what makes compounding possible.</span></div></li>
-      <li><b>IV.</b><div><strong>Think outside the box.</strong><span>Patience, record-keeping and emotional control are trading skills too.</span></div></li>
-      <li><b>V.</b><div><strong>Learn every step of the way.</strong><span>Every trade is tuition. The journal is the receipt.</span></div></li>
-    </ol>
-  </div></section>`;
+    <div class="rules">
+      <div><b>I</b><strong>Always be looking to buy.</strong><span>Strong markets don't stay down long. Pullbacks in a trend are where patient money gets in.</span></div>
+      <div><b>II</b><strong>Money never disappears, it rotates.</strong><span>Fear pushes it out and greed brings it back. Learn the cycle.</span></div>
+      <div><b>III</b><strong>Take the risks others won't, with a stop.</strong><span>Bold in the idea, disciplined in the size.</span></div>
+      <div><b>IV</b><strong>Think outside the box.</strong><span>Patience, record-keeping and self-control are trading skills too.</span></div>
+      <div><b>V</b><strong>Learn every step of the way.</strong><span>Every trade is tuition. The journal is the receipt.</span></div>
+    </div>
+  </section></div>`;
   if(scrollTo){const el=document.getElementById(scrollTo); if(el) el.scrollIntoView();} else window.scrollTo(0,0);
 }
 
-function rail(m,current){
-  return `<aside class="rail"><a class="back" href="#home">← All modules</a>
-  <span class="eyebrow">Module ${String(m.id).padStart(2,"0")} · ${m.tier}</span><h4>${m.title}</h4>
-  <ol>${m.lessons.map((l,i)=>`<li><a href="#m${m.id}-l${i+1}" class="${state.done[lessonKey(m.id,i+1)]?"done":""}" ${current===i+1?'aria-current="page"':""}><span class="n">${state.done[lessonKey(m.id,i+1)]?"✓":String(i+1).padStart(2,"0")}</span><span>${l.t}</span></a></li>`).join("")}
-  <li><a href="#m${m.id}-quiz" ${current==="quiz"?'aria-current="page"':""}><span class="n">${state.quiz[m.id]!=null?Math.round(state.quiz[m.id]*100)+"":"Q"}</span><span>Module quiz</span></a></li></ol></aside>`;
+/* ---------- lesson ---------- */
+function topBar(m,here){
+  const dots=m.lessons.map((_,i)=>`<a href="#m${m.id}-l${i+1}" class="${here===i+1?"here":state.done[key(m.id,i+1)]?"done":""}" aria-label="Lesson ${i+1}"></a>`).join("")
+    +`<a href="#m${m.id}-quiz" class="${here==="quiz"?"here":(state.quiz[m.id]||0)>=0.8?"done":""}" aria-label="Quiz"></a>`;
+  return `<div class="ltop"><a class="back" href="#home">← All steps</a><span class="where">Step ${m.id}: ${esc(m.title)} · ${here==="quiz"?"Quiz":"Lesson "+here+" of "+m.lessons.length}</span></div><div class="dots">${dots}</div>`;
 }
-
 function viewLesson(mid,li){
   const m=COURSE.find(x=>x.id===mid); if(!m) return viewHome();
   const l=m.lessons[li-1]; if(!l) return viewQuiz(mid);
-  const k=lessonKey(mid,li), isDone=!!state.done[k];
-  const prev=li>1?`#m${mid}-l${li-1}`:(mid>1?`#m${mid-1}-quiz`:null);
-  const next=li<m.lessons.length?`#m${mid}-l${li+1}`:`#m${mid}-quiz`;
-  app.innerHTML=`<div class="wrap room">${rail(m,li)}
-  <article class="lesson"><span class="eyebrow">Lesson ${mid}.${li}</span><h1>${l.t}</h1><p class="dek">${l.d}</p>
-  <div class="prose">${l.h}</div>
-  <div class="complete-row"><button class="btn ${isDone?"line":""}" id="mark" type="button">${isDone?"✓ Completed":"Mark lesson complete"}</button><small>${isDone?"Saved in this browser.":"Progress saves in this browser."}</small></div>
-  <div class="pager">${prev?`<a class="btn line" href="${prev}">← Previous</a>`:"<span></span>"}<a class="btn" href="${next}">${li<m.lessons.length?"Next lesson":"Take the quiz"} →</a></div>
+  const last=li===m.lessons.length;
+  const nextHref=last?`#m${mid}-quiz`:`#m${mid}-l${li+1}`;
+  const prevHref=li>1?`#m${mid}-l${li-1}`:(mid>1?`#m${mid-1}-l1`:"#home");
+  app.innerHTML=`<div class="wrap narrow">${topBar(m,li)}
+  <article class="lesson">
+    <h1>${esc(l.t)}</h1>
+    <div class="readtime">${mins(l.h)} min read</div>
+    <div class="short"><span class="label">The short version</span><p>${esc(l.k)}</p></div>
+    <div class="prose">${l.h}</div>
+    <div class="finish">
+      <a class="btn big" id="next" href="${nextHref}">Got it. ${last?"Take the quiz":"Next lesson"} →</a>
+      <div class="row"><a class="btn line small" href="${prevHref}">← Back</a>${state.done[key(mid,li)]?'<span class="muted" style="align-self:center;font-size:14px">✓ Done</span>':""}</div>
+    </div>
+    <details class="all"><summary>All lessons in Step ${mid}</summary><ol>
+      ${m.lessons.map((x,i)=>`<li><a href="#m${mid}-l${i+1}" class="${i+1===li?"here":""}">${esc(x.t)}</a> ${state.done[key(mid,i+1)]?'<span class="tick">✓</span>':""}</li>`).join("")}
+      <li><a href="#m${mid}-quiz">Step ${mid} quiz</a></li></ol></details>
   </article></div>`;
-  document.getElementById("mark").onclick=()=>{state.done[k]=!state.done[k];save();viewLesson(mid,li)};
+  document.getElementById("next").addEventListener("click",()=>{state.done[key(mid,li)]=true;save();});
   window.scrollTo(0,0);
 }
 
+/* ---------- quiz (one question at a time) ---------- */
 function viewQuiz(mid){
   const m=COURSE.find(x=>x.id===mid); if(!m) return viewHome();
-  let answered=0,right=0;
-  const next=mid<COURSE.length?`#m${mid+1}-l1`:"#home";
-  app.innerHTML=`<div class="wrap room">${rail(m,"quiz")}
-  <article class="lesson"><span class="eyebrow">Module ${mid} quiz</span><h1>Prove it.</h1><p class="dek">${m.quiz.length} questions. Score 80% or more with every lesson complete to master this module.</p>
-  <div id="qs">${m.quiz.map((q,qi)=>`<div class="q" data-qi="${qi}"><h3>${qi+1}. ${esc(q.q)}</h3><div class="opts">${q.o.map((o,oi)=>`<button type="button" data-oi="${oi}">${esc(o)}</button>`).join("")}</div><div class="why" hidden></div></div>`).join("")}</div>
-  <div id="result" hidden class="callout"><span class="eyebrow">Your score</span><div class="score" id="score"></div><p id="verdict"></p><p>Ready to practise? <a class="broker-link" href="#" target="_blank" rel="noopener sponsored">Open a free demo with our partner broker →</a></p></div>
-  <div class="pager"><a class="btn line" href="#m${mid}-l${m.lessons.length}">← Last lesson</a><a class="btn" href="${next}">${mid<COURSE.length?"Next module":"Back to curriculum"} →</a></div>
-  </article></div>`;
-  app.querySelectorAll(".q").forEach(box=>{
-    const q=m.quiz[+box.dataset.qi];
-    box.querySelectorAll("button").forEach(b=>b.onclick=()=>{
-      const oi=+b.dataset.oi; box.querySelectorAll("button").forEach(x=>{x.disabled=true; if(+x.dataset.oi===q.a)x.classList.add("right")});
-      if(oi!==q.a) b.classList.add("wrong"); else right++;
-      const w=box.querySelector(".why"); w.textContent=(oi===q.a?"Correct. ":"Not quite. ")+q.w; w.hidden=false;
-      answered++;
-      if(answered===m.quiz.length){const s=right/m.quiz.length; state.quiz[mid]=Math.max(s,state.quiz[mid]||0); save();
-        document.getElementById("result").hidden=false; document.getElementById("score").textContent=right+" / "+m.quiz.length;
-        document.getElementById("verdict").textContent=s>=0.8?"Passed. Lock it in and move on.":"Review the lessons and try again. Repetition builds the instinct.";}
+  let qi=0,right=0;
+  function draw(){
+    const q=m.quiz[qi];
+    app.innerHTML=`<div class="wrap narrow">${topBar(m,"quiz")}
+    <span class="label">Question ${qi+1} of ${m.quiz.length}</span>
+    <div class="meter" style="margin:12px 0 24px"><i style="width:${qi/m.quiz.length*100}%"></i></div>
+    <div class="qcard"><h2>${esc(q.q)}</h2><div class="opts">${q.o.map((o,oi)=>`<button class="opt" type="button" data-oi="${oi}">${esc(o)}</button>`).join("")}</div><div id="why"></div></div></div>`;
+    app.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+      const oi=+b.dataset.oi, ok=oi===q.a; if(ok) right++;
+      app.querySelectorAll(".opt").forEach(x=>{x.disabled=true; if(+x.dataset.oi===q.a) x.classList.add("right")});
+      if(!ok) b.classList.add("wrong");
+      const lastQ=qi===m.quiz.length-1;
+      document.getElementById("why").innerHTML=`<div class="why"><b>${ok?"Correct!":"Not quite."}</b>${esc(q.w)}</div><div style="margin-top:18px"><button class="btn big" id="qnext" type="button">${lastQ?"See my score":"Next question"} →</button></div>`;
+      document.getElementById("qnext").onclick=()=>{ if(lastQ) finish(); else {qi++; draw(); window.scrollTo(0,0);} };
+      document.getElementById("qnext").focus();
     });
-  });
-  window.scrollTo(0,0);
+  }
+  function finish(){
+    const s=right/m.quiz.length, pass=s>=0.8;
+    state.quiz[mid]=Math.max(s,state.quiz[mid]||0);
+    if(pass) m.lessons.forEach((_,i)=>state.done[key(mid,i+1)]=true);
+    save();
+    const more=mid<COURSE.length;
+    app.innerHTML=`<div class="wrap narrow">${topBar(m,"quiz")}<div class="result">
+      <div class="score">${right}/${m.quiz.length}</div>
+      <h1>${pass?(more?`Step ${mid} complete!`:"You finished the course!"):"Almost there."}</h1>
+      <p>${pass?(more?`Next up is Step ${mid+1}: ${esc(COURSE[mid].title)}.`:"You know the basics of trading forex. Now practise your plan on a demo account."):"You need 4 out of 5 to pass. Look back at the lessons, then try again."}</p>
+      <div class="actions">
+        ${pass?(more?`<a class="btn big" href="#m${mid+1}-l1">Start Step ${mid+1} →</a>`:`<a class="btn big broker-link" href="#" target="_blank" rel="noopener sponsored">Open a demo account →</a>`):`<button class="btn big" id="retry" type="button">Try again</button><a class="btn line" href="#m${mid}-l1">Review the lessons</a>`}
+        <a class="btn line" href="#home">Back to all steps</a>
+      </div></div></div>`;
+    const r=document.getElementById("retry"); if(r) r.onclick=()=>{qi=0;right=0;draw();};
+    wireBroker(); window.scrollTo(0,0);
+  }
+  draw(); window.scrollTo(0,0);
 }
 
+/* ---------- calculator ---------- */
 const PAIRS={
- "EUR/USD":{p:.0001,t:"q",px:1.0850},"GBP/USD":{p:.0001,t:"q",px:1.2710},"AUD/USD":{p:.0001,t:"q",px:.6590},"NZD/USD":{p:.0001,t:"q",px:.5930},
+ "EUR/USD":{p:.0001,t:"q"},"GBP/USD":{p:.0001,t:"q"},"AUD/USD":{p:.0001,t:"q"},"NZD/USD":{p:.0001,t:"q"},
  "USD/JPY":{p:.01,t:"b",px:150.20},"USD/CAD":{p:.0001,t:"b",px:1.3640},"USD/CHF":{p:.0001,t:"b",px:.8820},
  "EUR/JPY":{p:.01,t:"d",conv:"USD/JPY",cx:150.20},"GBP/JPY":{p:.01,t:"d",conv:"USD/JPY",cx:150.20},"AUD/JPY":{p:.01,t:"d",conv:"USD/JPY",cx:150.20},
  "EUR/GBP":{p:.0001,t:"m",conv:"GBP/USD",cx:1.2710},"EUR/AUD":{p:.0001,t:"m",conv:"AUD/USD",cx:.6590}
 };
 function viewTools(){
-  app.innerHTML=`<section class="block"><div class="wrap">
-  <div class="sec-head"><div><span class="eyebrow">Trader's desk</span><h2>Position size calculator</h2></div><p style="max-width:46ch;color:var(--muted);margin:0">Choose how much you will risk and where your stop goes. The calculator gives the lot size. This is the formula from Lesson 11.2. Account currency is USD.</p></div>
+  app.innerHTML=`<div class="wrap narrow" style="padding-block:40px 0">
+  <span class="label">Calculator</span>
+  <h1 style="font-size:clamp(40px,7vw,60px);margin-top:10px">How big should my trade be?</h1>
+  <p class="muted" style="font-size:18px;margin:12px 0 0">Type in your account size, how much you are willing to lose, and where your stop loss goes. The calculator tells you the lot size to use. (Learn why in Step 11.)</p>
   <div class="tool">
     <div class="in">
-      <div class="two"><label for="bal">Account balance ($)<input id="bal" type="number" min="0" step="100" value="10000"></label>
-      <label for="risk">Risk per trade (%)<input id="risk" type="number" min="0" step="0.25" value="1"></label></div>
+      <label for="bal">Account size ($)<input id="bal" type="number" min="0" step="100" value="10000"></label>
+      <label for="risk">Risk per trade (%) <small>Most traders use 1%</small><input id="risk" type="number" min="0" step="0.25" value="1"></label>
       <label for="pair">Currency pair<select id="pair">${Object.keys(PAIRS).map(p=>`<option>${p}</option>`).join("")}</select></label>
       <div class="two"><label for="stop">Stop loss (pips)<input id="stop" type="number" min="0.1" step="1" value="25"></label>
       <label for="tp">Take profit (pips)<input id="tp" type="number" min="0" step="1" value="50"></label></div>
-      <label for="px" id="pxl">Current price<input id="px" type="number" step="0.0001"></label>
+      <label for="px" id="pxl"><span id="pxt">Current price</span><input id="px" type="number" step="0.0001"></label>
     </div>
     <div class="out" aria-live="polite">
-      <div class="k">Position size</div><div class="v" id="o-lots">–</div>
+      <div class="k">Use this lot size</div><div class="v" id="o-lots">–</div>
+      <div class="k">Most you can lose on this trade</div><div class="v sm" id="o-risk">–</div>
+      <div class="k">If you hit your take profit</div><div class="v sm" id="o-tp">–</div>
+      <div class="k">Each pip is worth</div><div class="v sm" id="o-pip">–</div>
       <div class="k">Units</div><div class="v sm" id="o-units">–</div>
-      <div class="k">Amount at risk</div><div class="v sm" id="o-risk">–</div>
-      <div class="k">Pip value at this size</div><div class="v sm" id="o-pip">–</div>
-      <div class="k">Potential profit · risk : reward</div><div class="v sm" id="o-tp">–</div>
     </div>
   </div>
-  <div class="sec-head"><div><span class="eyebrow">Reference</span><h2>Drawdown recovery</h2></div></div>
-  <div class="table-wrap" style="max-width:560px"><table><thead><tr><th>If you lose</th><th>You need to gain</th></tr></thead><tbody>
-  ${[5,10,20,25,30,40,50,60,75,90].map(d=>`<tr><td class="num">${d}%</td><td class="num">${(d/(100-d)*100).toFixed(1)}%</td></tr>`).join("")}</tbody></table></div>
-  </div></section>`;
+  <h2 style="font-size:34px">Why small losses matter</h2>
+  <p class="muted">The more you lose, the harder it is to get back to even.</p>
+  <div class="table-wrap"><table><thead><tr><th>If you lose</th><th>You need to make back</th></tr></thead><tbody>
+  ${[10,20,30,40,50,75,90].map(d=>`<tr><td class="num">${d}%</td><td class="num">${(d/(100-d)*100).toFixed(1)}%</td></tr>`).join("")}</tbody></table></div></div>`;
   const $=id=>document.getElementById(id);
-  function setPair(){const P=PAIRS[$("pair").value]; const pl=$("pxl");
-    if(P.t==="q"){pl.hidden=true}else{pl.hidden=false; pl.firstChild.textContent=(P.t==="b"?$("pair").value+" price":P.conv+" price (to convert to USD)"); $("px").value=P.t==="b"?P.px:P.cx; $("px").step=P.p===.01||P.conv==="USD/JPY"?"0.01":"0.0001";}
+  function setPair(){const P=PAIRS[$("pair").value];
+    if(P.t==="q"){$("pxl").hidden=true}else{$("pxl").hidden=false; $("pxt").textContent=P.t==="b"?$("pair").value+" price now":P.conv+" price now (to convert to dollars)"; $("px").value=P.t==="b"?P.px:P.cx; $("px").step=(P.t==="b"&&P.p===.01)||P.conv==="USD/JPY"?"0.01":"0.0001";}
     calc();}
   function calc(){const P=PAIRS[$("pair").value]; const bal=+$("bal").value||0, r=+$("risk").value||0, sl=+$("stop").value||0, tp=+$("tp").value||0, px=+$("px").value||0;
-    let pv; const raw=P.p*100000;
-    if(P.t==="q") pv=raw; else if(P.t==="b"||P.t==="d") pv=px?raw/px:0; else pv=raw*px;
-    const riskUsd=bal*r/100; const lots=(sl>0&&pv>0)?riskUsd/(sl*pv):0;
+    const raw=P.p*100000; let pv;
+    if(P.t==="q") pv=raw; else if(P.t==="m") pv=raw*px; else pv=px?raw/px:0;
+    const riskUsd=bal*r/100, lots=(sl>0&&pv>0)?riskUsd/(sl*pv):0;
     const f=n=>n.toLocaleString("en-US",{style:"currency",currency:"USD"});
-    $("o-lots").textContent=lots.toFixed(2)+" lots"; $("o-units").textContent=Math.round(lots*100000).toLocaleString("en-US")+" units";
-    $("o-risk").textContent=f(riskUsd); $("o-pip").textContent=f(lots*pv)+" per pip  ("+f(pv)+" per standard lot)";
-    $("o-tp").textContent=f(lots*pv*tp)+"  ·  1 : "+(sl?(tp/sl).toFixed(2):"–");}
+    $("o-lots").textContent=lots.toFixed(2)+" lots"; $("o-risk").textContent=f(riskUsd);
+    $("o-tp").textContent="+"+f(lots*pv*tp)+(sl?`  (you win ${(tp/sl).toFixed(1)}× what you risk)`:"");
+    $("o-pip").textContent=f(lots*pv); $("o-units").textContent=Math.round(lots*100000).toLocaleString("en-US");}
   ["bal","risk","stop","tp","px"].forEach(id=>$(id).addEventListener("input",calc));
   $("pair").addEventListener("change",setPair); setPair(); window.scrollTo(0,0);
 }
 
 /* ---------- router ---------- */
+function wireBroker(){document.querySelectorAll(".broker-link").forEach(a=>a.href=BROKER_URL)}
 function route(){
-  const h=(location.hash||"#home").slice(1);
+  const h=(location.hash||"#home").slice(1); let mm;
   document.querySelectorAll("[data-nav]").forEach(a=>a.removeAttribute("aria-current"));
-  let mm;
   if((mm=h.match(/^m(\d+)-l(\d+)$/))) viewLesson(+mm[1],+mm[2]);
   else if((mm=h.match(/^m(\d+)-quiz$/))) viewQuiz(+mm[1]);
   else if((mm=h.match(/^m(\d+)$/))) viewLesson(+mm[1],1);
   else if(h==="tools"){viewTools(); document.querySelector('[data-nav="tools"]').setAttribute("aria-current","page");}
-  else if(h==="code"){viewHome("code");}
+  else if(h==="code") viewHome("code");
   else {viewHome(); document.querySelector('[data-nav="home"]').setAttribute("aria-current","page");}
+  wireBroker();
 }
-function wireBroker(){document.querySelectorAll(".broker-link").forEach(a=>a.href=BROKER_URL)}
-window.addEventListener("hashchange",()=>{route();wireBroker()}); route(); wireBroker();
+window.addEventListener("hashchange",route); route();
 
 /* ---------- theme toggle ---------- */
 (function(){const root=document.documentElement; let saved=null; try{saved=localStorage.getItem("ll-theme")}catch(e){}
